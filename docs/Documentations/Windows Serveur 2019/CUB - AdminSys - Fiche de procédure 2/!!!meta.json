@@ -1,0 +1,144 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.99.0",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "CC5MKh1HdkWy",
+			"notePath": [
+				"CC5MKh1HdkWy"
+			],
+			"title": "CUB - AdminSys - Fiche de procédure 2",
+			"notePosition": 20,
+			"prefix": null,
+			"isExpanded": false,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [],
+			"format": "markdown",
+			"dataFileName": "CUB - AdminSys - Fiche de proc.md",
+			"attachments": [
+				{
+					"attachmentId": "0PXi9VIlVg6V",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "3UMRcWe27FPz",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "1_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "3ZC2nyKjCqUE",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "2_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "7x1QZ3MCBWo3",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "3_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "AsE9igdbnO50",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "4_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "hLVoDZBBHCbu",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/jpg",
+					"position": 10,
+					"dataFileName": "5_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "hSwLxmPiVDt0",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "6_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "ikVChOErhLsb",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "7_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "isRknN33OyfG",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "8_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "kmJreexY6MX2",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "9_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "nZyOX2uZQGb1",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "10_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "WblxV3ZjxWiF",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/jpg",
+					"position": 10,
+					"dataFileName": "11_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "XGkcSzNjtJxg",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "12_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "zfnIwJFx8UYf",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "13_CUB - AdminSys - Fiche de .png"
+				},
+				{
+					"attachmentId": "ztV3MCDlBJQS",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/jpg",
+					"position": 10,
+					"dataFileName": "14_CUB - AdminSys - Fiche de .png"
+				}
+			]
+		}
+	]
+}
