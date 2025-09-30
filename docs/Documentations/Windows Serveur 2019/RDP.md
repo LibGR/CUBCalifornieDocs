@@ -1,6 +1,6 @@
 # Liaison sécurisée avec le bureau à distance - **RDP**
 
-### Activation du RDP coté serveur :
+## Activation du RDP coté serveur :
 
 Dans le tableau de contrôle du serveur :
  
@@ -16,8 +16,7 @@ Pour résoudre le message d'erreur, activez cette règle dans le par-feu :
  
 ![](../../media/doc/W19S/RDP/3_CUB-AdminSys-Fichede.png)
 
-
-### Connexion depuis un poste Windows :
+## Connexion depuis un poste Windows :
 
 Lancer l'application du bureau à distance :
  
