@@ -1,11 +1,11 @@
 site_name: Le contexte CUB
-#site_url: https://qdemouliere.github.io/cub
-#copyright: Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
-#repo_url: https://github.com/<ton-utilisateur>/<nom-du-repo>
+site_url: https://libgr.github.io/CUBCalifornieDocs/
+copyright: Licence GNU GPL v3.0 - 2025 L. Boigegrain et T. Reynaud - Lycée Paul-Louis Courier
+repo_url: https://github.com/LibGR/CUBCalifornieDocs
 theme:
   name: material
-    #logo: ./media/cub/logo.png
- # favicon: ./media/cub/favicon.png
+  logo: ./media/cub/logo.png
+  favicon: ./media/cub/favicon.png
   features:
     - md_in_html
     - navigation.footer
