@@ -65,7 +65,7 @@ DenyUsers Administrateur
 
 Redémarage du service :
 
-![](../../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
+[](../../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
 
 La connexion est rendu impossible :
 
