@@ -1,4 +1,4 @@
-# **Windows Serveur 2019 - Mise en place d'une liaison sécurisée avec le terminal - SSH**
+# Liaison sécurisée avec le terminal - **SSH**
 
 Pour pouvoir installer OpenSSH Server sans notre infrastructure, cette configuration réseau :
 ![](../../media/doc/W19S/SSH/1_CUB-AdminSys-Fichede.png)
