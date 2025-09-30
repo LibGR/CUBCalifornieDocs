@@ -1,4 +1,4 @@
-# Mise en place d'une liaison sécurisée avec le bureau à distance - **RDP**
+# Liaison sécurisée avec le bureau à distance - **RDP**
 
 ### Activation du RDP coté serveur :
 
