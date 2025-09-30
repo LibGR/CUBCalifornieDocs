@@ -1,13 +1,13 @@
 # **Windows Serveur 2019 - Mise en place d'une liaison sécurisée avec le terminal - SSH**
 
 Pour pouvoir installer OpenSSH Server sans notre infrastructure, cette configuration réseau :
-![](../../../media/doc/W19S/SSH/1_CUB-AdminSys-Fichede.png)
+![](../../media/doc/W19S/SSH/1_CUB-AdminSys-Fichede.png)
 
 ### I. Installation d'OpenSSH Server
-![](../../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.jpg)
+![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.jpg)
 
 ### II. Activation d'OpenSSH Server
-![](../../../media/doc/W19S/SSH/5_CUB-AdminSys-Fichede.png)
+![](../../media/doc/W19S/SSH/5_CUB-AdminSys-Fichede.png)
 
 ### III. Connection depuis un poste externe
 
@@ -30,7 +30,7 @@ administrateur@SERVEURPRIMAIRE C:\Users\Administrateur>
 ### IV. Sécurisation du serveur SSH :
 
 #### Création du compte dédié SSH:
-![](../../../media/doc/W19S/SSH/2_CUB-AdminSys-Fichede.png)
+![](../../media/doc/W19S/SSH/2_CUB-AdminSys-Fichede.png)
 
 ```
 etudiant@S406-P10-L:~$ ssh adminssh@172.16.53.1
@@ -65,7 +65,7 @@ DenyUsers Administrateur
 
 Redémarage du service :
  
-![](../../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
+![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
 
 La connexion est rendu impossible :
 
@@ -100,7 +100,7 @@ PS C:\Users\adminssh> New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Serve
 r (sshd) - Port 222' -Enabled True -Direction Inbound -Protocol TCP -Action Allo
 w -LocalPort 222
 ```
-![](../../../media/doc/W19S/SSH/4_CUB-AdminSys-Fichede.png)
+![](../../media/doc/W19S/SSH/4_CUB-AdminSys-Fichede.png)
 
 Redémarrer le service via powershell:
 
