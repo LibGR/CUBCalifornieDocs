@@ -1,31 +1,48 @@
 site_name: Le contexte CUB
 #site_url: https://qdemouliere.github.io/cub
-copyright: Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier 
+#copyright: Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+#repo_url: https://github.com/<ton-utilisateur>/<nom-du-repo>
 theme:
   name: material
-  #logo: ./media/cub/logo.png
+    #logo: ./media/cub/logo.png
  # favicon: ./media/cub/favicon.png
-  language: fr
   features:
+    - md_in_html
     - navigation.footer
     - content.code.copy
+    - navigation.expand
+    - navigation.top
+    - content.code.annotate
+    - content.tabs.link
+  language: fr
+
 markdown_extensions:
-  - admonition
+  # Markdown enrichi
   - tables
+  - attr_list
+  - def_list
   - footnotes
+  # Admonitions et emphase
+  - admonition
   - pymdownx.details
+  - pymdownx.betterem:
+      smart_enable: all
+  # Code et coloration
+  - codehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - attr_list
-  - md_in_html
-  - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
+  # Onglets et organisation
   - pymdownx.tabbed:
       alternate_style: true
+  # Table des matières
+  - toc:
+      permalink: true
