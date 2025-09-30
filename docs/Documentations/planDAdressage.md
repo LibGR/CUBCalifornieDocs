@@ -1,7 +1,5 @@
 # Plan d'adressage
-
 ---
-
 ### VLAN 53 — Production
 60 × 2 = 120 appareils  
 2⁷ - 2 = 126  

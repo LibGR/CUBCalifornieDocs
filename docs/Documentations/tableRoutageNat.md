@@ -1,11 +1,7 @@
 # Les tables de routage et Nat
-
 ---
-
 ### Tables de routage
-
 #### Commutateur de niveau 3
-
 | Destination | Masque | Passerelle | Interface | Type |
 | --- | --- | --- | --- | --- |
 | 192.168.3.0 | 255.255.255.128 | 192.168.3.126 | 192.168.3.126 | Connecté |
@@ -15,7 +11,6 @@
 | 0.0.0.0 | 0.0.0.0 | 192.168.33.254 | 192.168.33.253 | Statique |
 
 #### Firewall Stormsheld
-
 | Destination | Masque | Passerelle | Interface | Type |
 | --- | --- | --- | --- | --- |
 | 192.36.3.0 | 255.255.255.0 | 192.36.3.254 | 192.36.3.254 | Connecté |
@@ -25,7 +20,6 @@
 | 0.0.0.0 | 0.0.0.0 | 192.36.253.254 | 192.36.253.30 | Statique |
 
 ### Table de NAT
-
 | IP Source (avant) | Port Source (avant) | IP Destination (avant) | Port Distant (avant) | IP Source (après) | Port Source (après) | IP Destination (après) | Port Distant (après) |
 |-------------------|----------------------|-------------------------|-----------------------|-------------------|----------------------|-------------------------|-----------------------|
 | 192.168.3.0/24    | *                    | *                       | *                     | 192.36.253.30/24  | *                    | *                       | *                     |
