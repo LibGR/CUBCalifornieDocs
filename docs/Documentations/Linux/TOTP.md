@@ -28,7 +28,7 @@ sudo apt install -y libpam-oath oathtool openssh-server qrencode
 * **oathtool** : génère et vérifie les codes OTP
 * **qrencode** : crée un QR code pour l’application d’authentification
 
-!!! info Information
+!!! info "Information"
     Qrencode doit être utilisé sur une machine possédant une interface graphique. Pas forcément le serveur.
 
 ## 4. Créer un nouveau secret pour l’utilisateur "etudiant"
@@ -62,13 +62,13 @@ Ajoutez ou modifiez les lignes suivantes :
 auth required pam_unix.so nullok_secure
 auth required pam_oath.so usersfile=/etc/security/users.oath window=30 digits=6
 ```
-!!! info Bastion
+!!! info "Bastion"
     Pour **exclure un utilisateur** du système TOTP, ajoutez cette ligne avant les précédentes :
 
 ```
 auth [success=1 default=ignore] pam_succeed_if.so user = adminbastion
 ```
-!!! danger Sécurité
+!!! danger "Sécurité"
     Cet utilisateur pourra donc se connecter sans TOTP, il faut donc le sécurisé avec un mot de passe fort ou une clef SSH.
 
 ## 7. Configurer SSH pour utiliser TOTP
@@ -120,7 +120,7 @@ sudo apt install -y systemd-timesyncd
 sudo systemctl enable --now systemd-timesyncd
 ```
 
-!!! warning Désyncronisation
+!!! warning "Désyncronisation"
     Les OTP dépendent de l’heure : vérifiez que le serveur et votre téléphone sont bien synchronisés.
 
 ## 11. Tester la connexion SSH
