@@ -97,9 +97,9 @@ Après connexion physique au **port 13**, le ping entre le client et le serveur 
 ## 5. Vérifications finales
 
 !!! info "Vérification"
-    * [x] Sysprep exécuté et SID unique
-    * [x] Nom du serveur conforme
-    * [x] Mot de passe administrateur modifié
-    * [x] IP statique configurée
-    * [x] Test ICMP fonctionnel
+    * Sysprep exécuté et SID unique
+    * Nom du serveur conforme
+    * Mot de passe administrateur modifié
+    * IP statique configurée
+    * Test ICMP fonctionnel
 
