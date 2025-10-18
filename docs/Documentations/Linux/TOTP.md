@@ -1,45 +1,60 @@
-# TOTP ETCKEEPER DNS
+# SSH sécurisé via TOTP
 ---
-## 1\. Mise en place de TOTP (SSH avec OTP sur Debian 12)
+## 1. Mise à jour du système
 
-### Réinstallation complète
+Avant de commencer, assurez-vous que votre système est à jour :
 
-1.  Nettoyage de l’ancienne configuration
-
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
+
+## 2. Nettoyer l’ancienne configuration
+
+Supprimez l’ancien fichier de secrets s’il existe :
+
+```bash
 sudo rm -f /etc/security/users.oath
 ```
 
-2.  Installation des paquets nécessaires
+## 3. Installer les outils nécessaires
 
-```
-sudo apt update
-sudo apt install -y libpam-oath oathtool openssh-server
+```bash
+sudo apt install -y libpam-oath oathtool openssh-server qrencode
 ```
 
-3.  Génération d’un nouveau secret
+**Description des paquets :**
 
-```
+* **libpam-oath** : permet l’authentification OTP via PAM
+* **oathtool** : génère et vérifie les codes OTP
+* **qrencode** : crée un QR code pour l’application d’authentification
+
+!!! info Information
+    Qrencode doit être utilisé sur une machine possédant une interface graphique. Pas forcément le serveur.
+
+## 4. Créer un nouveau secret pour l’utilisateur "etudiant"
+
+```bash
 sudo -i
-KEY=$(openssl rand -hex 20)
-echo "HOTP/T30/6 etudiant - ${KEY}" > /etc/security/users.oath
+openssl rand -hex 20 > /etc/security/users.oath
+echo "HOTP/T30/6 etudiant - $(cat /etc/security/users.oath)" > /etc/security/users.oath
 ```
 
-4.  Vérification et sécurisation
+## 5. Sécuriser le fichier de secrets
 
-```
-cat /etc/security/users.oath
-chown root:root /etc/security/users.oath
-chmod 600 /etc/security/users.oath
+```bash
+sudo chown root:root /etc/security/users.oath
+sudo chmod 600 /etc/security/users.oath
 ```
 
-5.  Configuration de PAM
+## 6. Configurer PAM pour SSH
 
-```
+Éditez le fichier PAM de SSH :
+
+```bash
 sudo nano /etc/pam.d/sshd
 ```
 
-Ajouter/commenter :
+Ajoutez ou modifiez les lignes suivantes :
 
 ```
 #@include common-auth
@@ -47,18 +62,24 @@ Ajouter/commenter :
 auth required pam_unix.so nullok_secure
 auth required pam_oath.so usersfile=/etc/security/users.oath window=30 digits=6
 ```
-Exclure un utilisateur de TOTP
-```
-auth [success=1 default=ignore] pam_succeed_if.so user = [UTILISATEUR]
-```
-
-6.  Configuration SSH
+!!! info Bastion
+    Pour **exclure un utilisateur** du système TOTP, ajoutez cette ligne avant les précédentes :
 
 ```
+auth [success=1 default=ignore] pam_succeed_if.so user = adminbastion
+```
+!!! danger Sécurité
+    Cet utilisateur pourra donc se connecter sans TOTP, il faut donc le sécurisé avec un mot de passe fort ou une clef SSH.
+
+## 7. Configurer SSH pour utiliser TOTP
+
+Éditez le fichier de configuration SSH :
+
+```bash
 sudo nano /etc/ssh/sshd_config
 ```
 
-Ajouter/commenter :
+Modifiez ou ajoutez ces lignes :
 
 ```
 #KbdInteractiveAuthentication no
@@ -67,129 +88,45 @@ ChallengeResponseAuthentication yes
 UsePAM yes
 ```
 
-Puis redémarrer :
+Redémarrez ensuite le service SSH :
 
-```
+```bash
 sudo systemctl restart ssh
 ```
 
-7.  Récupération de la clé pour l’application OTP
+## 8. Récupérer la clé OTP pour l’application
 
-```
-HEX=$(grep etudiant /etc/security/users.oath | awk '{print $4}')
-oathtool -v -d 6 $HEX
-```
-
-8.  Génération du QR code
-
-```
-qrencode -o etudiant.png 'otpauth://totp/etudiant@192.168.1.90?secret=TA_CLE_BASE32'
+```bash
+grep etudiant /etc/security/users.oath | awk '{print $4}' | oathtool -v -d 6 -
 ```
 
-9.  Vérification de la synchronisation NTP
+* Cette commande permet de vérifier que le code OTP fonctionne correctement.
 
+## 9. Générer un QR code à scanner
+
+Remplacez `TA_CLE_BASE32` par la clé affichée précédemment :
+
+```bash
+qrencode -o etudiant.png "otpauth://totp/etudiant@IP_DU_SERVEUR?secret=TA_CLE_BASE32"
 ```
+
+* Scannez le QR code avec une application OTP comme **Google Authenticator** ou **FreeOTP**.
+
+## 10. Vérifier la synchronisation de l’heure
+
+```bash
 timedatectl
-sudo apt install systemd-timesyncd
+sudo apt install -y systemd-timesyncd
 sudo systemctl enable --now systemd-timesyncd
 ```
 
-10.  Test de connexion
+!!! warning Désyncronisation
+    Les OTP dépendent de l’heure : vérifiez que le serveur et votre téléphone sont bien synchronisés.
 
-```
+## 11. Tester la connexion SSH
+
+```bash
 ssh etudiant@192.168.1.90
 ```
 
-Fonctionne
-
-* * *
-
-## 2\. Gestion de /etc avec etckeeper
-
-1.  Installation
-
-```
-sudo apt install etckeeper
-etckeeper --version
-```
-
-2.  Initialisation Git
-
-```
-sudo etckeeper init
-sudo etckeeper commit "Commit initial pour /etc"
-```
-
-3.  Configuration
-
-```
-sudoedit /etc/etckeeper/etckeeper.conf
-```
-
-Vérifier :
-
-```
-VCS="git"
-```
-
-4.  Intégration avec APT
-
-```
-sudo apt install nginx
-cd /etc
-sudo git log
-```
-
-5.  Gestion des métadonnées
-
-```
-PRESERVE_METADATA="yes"
-```
-
-6.  Sauvegarde et restauration
-
-```
-sudo tar czf etc-backup.tar.gz /etc
-sudo tar xzf etc-backup.tar.gz -C /
-cd /etc
-sudo git log --oneline
-```
-
-* * *
-
-## 3\. Mise en place d’Unbound (DNS récursif)
-
-1.  Installation
-
-```
-sudo apt install unbound
-```
-
-2.  Création d’une configuration personnalisée
-
-```
-sudo nano /etc/unbound/unbound.conf.d/cub.conf
-```
-
-Contenu :
-
-```
-server:
-    interface: 192.168.3.61
-    interface: 127.0.0.1
-    access-control: 192.168.3.0/25 allow
-    access-control: 192.168.3.128/26 allow
-    access-control: 192.168.3.192/28 allow
-    access-control: 127.0.0.0/8 allow
-    access-control: 0.0.0.0/0 refuse
-    hide-version: yes
-    hide-identity: yes
-    do-ip4: yes
-    verbosity: 3
-```
-
-   3. Redémarrage du service
-
-```
-sudo systemctl restart unbound
-```
+* Vous serez invité à saisir votre mot de passe **puis le code OTP** affiché dans votre application d’authentification.
