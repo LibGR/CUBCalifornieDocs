@@ -37,7 +37,8 @@ VCS="git"
 PRESERVE_METADATA="yes"
 ```
 
-> **Important :** À chaque modification apportée dans `/etc`, exécutez :
+!!! info "Important"
+    À chaque modification apportée dans `/etc`, exécutez :
 
 ```bash
 sudo etckeeper commit "Description du changement"

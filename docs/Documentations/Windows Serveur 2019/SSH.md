@@ -1,24 +1,49 @@
-# Liaison sécurisée avec le terminal - **SSH**
+# Liaison sécurisée avec le Terminal (SSH)
+---
+## 1. Préparation et installation d’OpenSSH Server
 
-Pour pouvoir installer OpenSSH Server sans notre infrastructure, cette configuration réseau :
+### Configuration réseau
+
+Avant l’installation, assurez-vous que le serveur dispose d’une configuration réseau fonctionnelle :
 ![](../../media/doc/W19S/SSH/1_CUB-AdminSys-Fichede.png)
 
-### I. Installation d'OpenSSH Server
+### Installation d’OpenSSH Server
+
+Installez le rôle **OpenSSH Server** via le gestionnaire de fonctionnalités Windows :
 ![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.jpg)
 
-### II. Activation d'OpenSSH Server
+
+## 2. Activation du service OpenSSH Server
+
+Activez ensuite le service SSH pour permettre les connexions à distance :
 ![](../../media/doc/W19S/SSH/5_CUB-AdminSys-Fichede.png)
 
-### III. Connection depuis un poste externe
+Vérifiez que le service **sshd** est bien démarré et configuré pour s’exécuter automatiquement.
 
-Connexion depuis un poste linux :
+!!! info "Astuce"
+    Vous pouvez aussi démarrer le service via PowerShell :
+    ```powershell
+    Start-Service sshd
+    Set-Service -Name sshd -StartupType 'Automatic'
+    ```
+
+## 3. Connexion à distance depuis un poste externe
+
+### Connexion depuis un poste Linux
+
+Exécutez la commande suivante dans un terminal :
+
+```bash
+ssh Administrateur@172.16.53.1
+```
+
+Entrez ensuite le mot de passe :
 
 ```
-etudiant@S406-P10-L:~$ ssh Administrateur@172.16.53.1
 Administrateur@172.16.53.1's password: 700_buC700_buC
 ```
 
-La connexion est bien réussi : 
+Une fois connecté, le terminal affiche :
 
 ```
 Microsoft Windows [version 10.0.17763.2114]
@@ -27,95 +52,109 @@ Microsoft Windows [version 10.0.17763.2114]
 administrateur@SERVEURPRIMAIRE C:\Users\Administrateur>
 ```
 
-### IV. Sécurisation du serveur SSH :
+La connexion SSH est opérationnelle.
 
-#### Création du compte dédié SSH:
+## 4. Sécurisation du serveur SSH
+
+### Création d’un compte dédié aux connexions SSH
+
+Pour plus de sécurité, créez un utilisateur spécialement destiné à l’accès SSH :
 ![](../../media/doc/W19S/SSH/2_CUB-AdminSys-Fichede.png)
 
-```
-etudiant@S406-P10-L:~$ ssh adminssh@172.16.53.1
-adminssh@172.16.53.1's password: Cub_Admin_Ssh_007
+Exemple de connexion avec ce nouveau compte :
 
+```bash
+ssh adminssh@172.16.53.1
+adminssh@172.16.53.1's password: Cub_Admin_Ssh_007
+```
+
+Connexion réussie :
+
+```
 Microsoft Windows [version 10.0.17763.2114]
 (c) 2018 Microsoft Corporation. Tous droits réservés.
 
 adminssh@SERVEURPRIMAIRE C:\Users\adminssh>
 ```
 
-#### Désactivation de la connexion au compte Administrateur :
+!!! info "Bonnes pratiques"
+    * N’utilisez jamais le compte **Administrateur** pour les connexions SSH.
+    * Créez un compte dédié et limitez ses permissions.
+    * Activez la journalisation des connexions pour suivre l’activité SSH.
 
-Ouvrir:
+### Désactivation de la connexion avec le compte Administrateur
+
+Ouvrez le fichier de configuration SSH :
 
 ```
 C:\ProgramData\ssh\sshd_config
 ```
 
-Commenter ses deux lignes :
+Commentez ces deux lignes :
 
 ```
 # Match Group administrators
 # AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
 ```
 
-Ajout de la ligne en bas de fichier :
+Ajoutez ensuite à la fin du fichier :
 
 ```
 DenyUsers Administrateur
 ```
 
-Redémarage du service :
- 
+Redémarrez le service SSH pour appliquer les changements :
 ![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
 
-La connexion est rendu impossible :
+La connexion au compte Administrateur est désormais bloquée :
 
 ```
 etudiant@S406-P10-L:~$ ssh Administrateur@172.16.53.1
-Administrateur@172.16.53.1's password: 
-Permission denied, please try again.
-Administrateur@172.16.53.1's password: 
-Permission denied, please try again.
-Administrateur@172.16.53.1's password: 
-Administrateur@172.16.53.1: Permission denied (publickey,password,keyboard-interactive).
+Permission denied (publickey,password,keyboard-interactive).
 ```
 
-#### Modification du port par defaut :
+### Modification du port par défaut
 
-Ouvrir:
+Pour renforcer la sécurité, changez le port d’écoute SSH.
+
+Ouvrez à nouveau le fichier :
 
 ```
 C:\ProgramData\ssh\sshd_config
 ```
 
-Changer la ligne de port pour :
+Modifiez la ligne du port :
 
 ```
 Port 222
 ```
 
-Mettre une nouvelle règle sur le parfeu via le powershell :
+Ajoutez une règle dans le pare-feu Windows via PowerShell :
 
+```powershell
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd) - Port 222' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 222
 ```
-PS C:\Users\adminssh> New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Serve
-r (sshd) - Port 222' -Enabled True -Direction Inbound -Protocol TCP -Action Allo
-w -LocalPort 222
-```
+
 ![](../../media/doc/W19S/SSH/4_CUB-AdminSys-Fichede.png)
 
-Redémarrer le service via powershell:
+Redémarrez le service SSH :
 
+```powershell
+Restart-Service "sshd"
 ```
-PS C:\Users\adminssh> Restart-Service "sshd"
-```
 
-Connexion avec le nouveau port :
+### Connexion avec le nouveau port
 
-```
-etudiant@S406-P10-L:~$ ssh adminssh@172.16.53.1
+Depuis le poste client, connectez-vous en précisant le port modifié :
 
-etudiant@S406-P10-L:~$ ssh -p 222 adminssh@172.16.53.1
+```bash
+ssh -p 222 adminssh@172.16.53.1
 adminssh@172.16.53.1's password: 
+```
 
+Connexion réussie :
+
+```
 Microsoft Windows [version 10.0.17763.2114]
 (c) 2018 Microsoft Corporation. Tous droits réservés.
 
