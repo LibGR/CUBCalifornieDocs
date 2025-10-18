@@ -5,17 +5,20 @@
 ### Configuration réseau
 
 Avant l’installation, assurez-vous que le serveur dispose d’une configuration réseau fonctionnelle :
+ 
 ![](../../media/doc/W19S/SSH/1_CUB-AdminSys-Fichede.png)
 
 ### Installation d’OpenSSH Server
 
 Installez le rôle **OpenSSH Server** via le gestionnaire de fonctionnalités Windows :
+ 
 ![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.jpg)
 
 
 ## 2. Activation du service OpenSSH Server
 
 Activez ensuite le service SSH pour permettre les connexions à distance :
+ 
 ![](../../media/doc/W19S/SSH/5_CUB-AdminSys-Fichede.png)
 
 Vérifiez que le service **sshd** est bien démarré et configuré pour s’exécuter automatiquement.
@@ -59,6 +62,7 @@ La connexion SSH est opérationnelle.
 ### Création d’un compte dédié aux connexions SSH
 
 Pour plus de sécurité, créez un utilisateur spécialement destiné à l’accès SSH :
+ 
 ![](../../media/doc/W19S/SSH/2_CUB-AdminSys-Fichede.png)
 
 Exemple de connexion avec ce nouveau compte :
@@ -104,6 +108,7 @@ DenyUsers Administrateur
 ```
 
 Redémarrez le service SSH pour appliquer les changements :
+ 
 ![](../../media/doc/W19S/SSH/CUB-AdminSys-Fichede.png)
 
 La connexion au compte Administrateur est désormais bloquée :
@@ -134,7 +139,7 @@ Ajoutez une règle dans le pare-feu Windows via PowerShell :
 ```powershell
 New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd) - Port 222' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 222
 ```
-
+ 
 ![](../../media/doc/W19S/SSH/4_CUB-AdminSys-Fichede.png)
 
 Redémarrez le service SSH :
