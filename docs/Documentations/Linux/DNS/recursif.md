@@ -1,5 +1,5 @@
 
-# DNS Récursif avec Unbound – Guide simplifié
+# DNS Récursif : Unbound
 ---
 ## 1. Mettre à jour le système
 
