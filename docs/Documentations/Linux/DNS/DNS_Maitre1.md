@@ -1,4 +1,4 @@
-# III - Serveur DNS maître faisant autorité
+# Serveur DNS maître faisant autorité
 
 ## Attention
 
