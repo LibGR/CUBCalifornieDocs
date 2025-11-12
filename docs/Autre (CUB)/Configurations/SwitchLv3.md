@@ -1,28 +1,24 @@
 # Configuration du SwitchLv3
 ```
-Current configuration : 10191 bytes                                             
-!                                                                               
-! Last configuration change at 10:35:20 UTC Mon Oct 6 2025                      
-!                                                                               
-version 17.6                                                                    
-service timestamps debug datetime msec                                          
-service timestamps log datetime msec                                            
-! Call-home is enabled by Smart-Licensing.                                      
-service call-home                                                               
-platform punt-keepalive disable-kernel-core                                     
-!                                                                               
-hostname SwitchL3                                                               
-!                                                                               
-!                                                                               
-vrf definition Mgmt-vrf                                                         
- !                                                                              
- address-family ipv4                                                            
- exit-address-family                                                            
- !                                                                              
- address-family ipv6                                                            
- exit-address-family                                                            
-!                                                                               
-!       
+version 17.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+! Call-home is enabled by Smart-Licensing.
+service call-home
+platform punt-keepalive disable-kernel-core
+!
+hostname SwitchLv3CUB
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!         
 !
 !
 !
@@ -88,30 +84,30 @@ crypto pki certificate chain TP-self-signed-3639644206
  certificate self-signed 01
   30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
   31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 33363339 36343432 3036301E 170D3235 31303036 30373533 
-  32375A17 0D333531 30303630 37353332 375A3031 312F302D 06035504 03132649 
+  69666963 6174652D 33363339 36343432 3036301E 170D3235 31303135 30373536 
+  33335A17 0D333531 30313530 37353633 335A3031 312F302D 06035504 03132649 
   4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
   34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100E33A D2038552 1469DD99 F7C92E05 00C9D626 F69E9F25 DC400598 
-  99EF55FD 39EB27B5 1D2FF594 1DCCDE79 1A619E7B DE7054D4 0A73096A 09BA3EBF 
-  8F3EC86D FD2F0198 7125C09D 3D293E84 2CE63604 C82A8A84 E559CAE6 7A5CFD9B 
-  5F455E27 E20F5E0A 4F4EA6DF B6ADA130 D4BD2A65 BEA76744 9F7930A1 4797A21E 
-  06AA07BB 28E0D8E6 0EB01D90 352F27B8 07100AF8 ED8E0769 3F58324D 74949718 
-  C6068B02 67DB5F6D 50ECD54B 41ECDACB 01CB8070 122B3E62 1F64C86D CAC92C14 
-  503D11DD C071586B 9EE8AB07 800E3A44 A1190AD7 73C481DD 23864EA9 AC89BBBD 
-  AC48DD5E 1E7C7654 407106A6 023CEB35 6A4493A2 B5858D5B 339399C9 BAC17D5F 
-  BEA318EA 0F8D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 140A57EC 085F21AB BFB80243 218C6C44 E457AB4B 
-  47301D06 03551D0E 04160414 0A57EC08 5F21ABBF B8024321 8C6C44E4 57AB4B47 
-  300D0609 2A864886 F70D0101 05050003 82010100 8087F15B 8FF27274 8F2DDD80 
-  95131276 651346E2 8FE0FCCD D8A2B7E7 AB940406 1FFE11D8 A6B4D6A2 1C03318A 
-  C192BB9C B5193A9F BE3E88EA F27275CC 95C27A48 F32BDD35 4196BB90 DAAE9D09 
-  564540A2 16369BF7 F83C335B E6CD6BFD E5642315 27D5DE86 3E57FCF6 215188F6 
-  907745E5 C5451637 1A5AE539 CDE6C6AD E8946F15 2B2D08E2 A32C30ED 181F5496 
-  D9EB60E5 18C3A215 1489E357 E976A260 77E02715 17FE7F58 8C191B7A 5056D0FC 
-  53355331 BF2B8C6A 5CDE1BC6 30A9746B 4BDDAF30 7CEF4790 0D7167AB ACAD5044 
-  EE7D4557 A12A2184 563EFC0A A3A0CE08 74ECEE24 AA49F59A EE93E9B2 F052E774 
-  ACA9EC7D FC914EE1 B3F6652D 533BEB2A D414BE6A
+  0A028201 0100D952 7228EF06 57F69FCF 58CAB3A6 6F78FEED 1FF4D252 3D5D1F50 
+  E8A49718 22F1F443 0E83A7C4 E34384E0 12F2B3C5 774C817E 0D2AA252 9E4CD905 
+  BBA763FD E82B35DB 48D243B7 7ED395FB EA866569 C2AC32C7 CBD20957 3B600F21 
+  C0D5228B 0C325A77 52BBA84A A8EDFF20 EAF82DEA ACC4507E 16938063 C08AA0E8 
+  CD05D611 73D4145F 3322E484 E42C060E F6B3D558 4E29B3B8 A38C280D 6BE456FF 
+  844644EB 13E08E3B 229DC525 57F4AED9 3F058836 666F0727 650D3908 9BCC7E45 
+  BA1BD3D0 63FC9DB3 8FF5C1D8 924124C5 A8E3FD11 43717CDE FE9016CC E8D45199 
+  AB78ABCC 4BEC94C3 87047732 CE8324E1 D08C6F3D E484C776 9362723B CB099680 
+  9040C1A5 1C270203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 143DCB04 1D628EDF AAB6D894 9A95797A C81235D2 
+  E3301D06 03551D0E 04160414 3DCB041D 628EDFAA B6D8949A 95797AC8 1235D2E3 
+  300D0609 2A864886 F70D0101 05050003 82010100 176E9668 691FC115 B4C9181A 
+  3B0F9B1C 8809486C B3203DFC ACD376B2 5B8068B9 D9FFBC69 51692B70 14C50BB7 
+  830D1125 1E449DB3 3CE1E8CF 8FF2B952 B886253D F8B7F897 553F3664 41092FD6 
+  86E225E2 779DC611 6C28CCCE FA1138D1 B08277C3 5FA9733F 2689421E 44D6342A 
+  9F2B43BE 67BEBA8A FCA3A078 6481DD65 1FDC426B 5ECB864E AAFF4FD4 45F3A39B 
+  0AA5D705 0975580E 2EB2317C 5702FDBC FA3A75C6 1366C56C 6BAF3B36 541DF819 
+  6BF284D7 3757A4FB BDAD2CAB 7474E0F8 B34AC761 1ADA5386 7339C48F 9B92E518 
+  9045E1D6 600CE8F0 DB59BA66 72616ACE 79FEFCA9 13259EB0 BFF1AFA8 E534ED4D 
+  1940CA73 A613B9C1 D5F931D8 CAFADA2B D8CFB590
         quit
 !
 license boot level network-essentials addon dna-essentials
@@ -186,46 +182,49 @@ policy-map system-cpp-policy
 !
 !
 !
-!
-!
-!
-!
-!
 interface GigabitEthernet0/0
  vrf forwarding Mgmt-vrf
  no ip address
  shutdown
 !
 interface GigabitEthernet1/0/1
- switchport access vlan 11
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/2
- switchport access vlan 21
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/3
- switchport access vlan 31
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/4
- switchport access vlan 41
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/5
  switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/6
- switchport access vlan 61
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/7
- switchport access vlan 71
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/8
- switchport access vlan 54
+ switchport access vlan 53
+ switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/9
@@ -237,7 +236,7 @@ interface GigabitEthernet1/0/11
 interface GigabitEthernet1/0/12
 !
 interface GigabitEthernet1/0/13
-!         
+!
 interface GigabitEthernet1/0/14
 !
 interface GigabitEthernet1/0/15
@@ -257,9 +256,11 @@ interface GigabitEthernet1/0/21
 interface GigabitEthernet1/0/22
 !
 interface GigabitEthernet1/0/23
+ switchport access vlan 33
+ switchport mode access
 !
 interface GigabitEthernet1/0/24
- switchport trunk allowed vlan 11,21,31,41,53,61,71
+ switchport trunk allowed vlan 10,20,53
  switchport mode trunk
 !
 interface GigabitEthernet1/1/1
@@ -271,79 +272,55 @@ interface GigabitEthernet1/1/3
 interface GigabitEthernet1/1/4
 !
 interface Vlan1
- no ip address
+ ip address 172.16.1.23 255.255.255.0
  shutdown
 !
-interface Vlan11
- ip address 192.168.3.65 255.255.255.224
- ip helper-address 172.16.53.2
+interface Vlan10
+ ip address 192.168.3.190 255.255.255.192
+ ip helper-address 192.168.3.2
+ ip helper-address 192.168.3.1
 !
-interface Vlan21
- ip address 192.168.3.161 255.255.255.224
- ip helper-address 172.16.53.2
-!
-interface Vlan31
- ip address 192.168.3.193 255.255.255.224
- ip helper-address 172.16.53.2
+interface Vlan20
+ ip address 192.168.3.206 255.255.255.240
+ ip helper-address 192.168.3.2
+ ip helper-address 192.168.3.1
 !
 interface Vlan33
- no ip address
-!
-interface Vlan41
- ip address 192.168.3.225 255.255.255.240
- ip helper-address 172.16.53.2
+ ip address 192.168.33.253 255.255.255.240
+ ip helper-address 192.168.3.2
 !
 interface Vlan53
- ip address 172.16.53.253 255.255.255.0
- ip helper-address 172.16.53.2
-!
-interface Vlan54
- ip address 192.168.33.253 255.255.255.240
-!
-interface Vlan61
- ip address 192.168.3.1 255.255.255.192
- ip helper-address 172.16.53.2
-!
-interface Vlan71
- ip address 192.168.3.129 255.255.255.224
- ip helper-address 172.16.53.2
+ ip address 192.168.3.126 255.255.255.128
+ ip helper-address 192.168.3.2
 !
 ip forward-protocol nd
 ip http server
 ip http authentication local
 ip http secure-server
 ip route 0.0.0.0 0.0.0.0 192.168.33.254
-!
-!
-!
+ip ssh version 2
 !
 control-plane
  service-policy input system-cpp-policy
-!
 !
 line con 0
  stopbits 1
 line aux 0
 line vty 0 4
- login
+ login local
  transport input ssh
 line vty 5 15
  login
  transport input ssh
 !
 call-home
- ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
- ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ ! If contact email address in call-home is configured as sch-smart-licensing@cm
+ ! the email address configured in Cisco Smart License Portal will be used as c.
  contact-email-addr sch-smart-licensing@cisco.com
  profile "CiscoTAC-1"
   active
   destination transport-method http
 !
-!
-!
-!
-!
-!
 end
-
 ```
+
