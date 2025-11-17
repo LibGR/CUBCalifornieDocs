@@ -1,24 +1,24 @@
 # Configuration du SwitchLv3
 ```
 version 17.6
-service timestamps debug datetime msec
-service timestamps log datetime msec
-! Call-home is enabled by Smart-Licensing.
-service call-home
-platform punt-keepalive disable-kernel-core
-!
-hostname SwitchLv3CUB
-!
-!
-vrf definition Mgmt-vrf
- !
- address-family ipv4
- exit-address-family
- !
- address-family ipv6
- exit-address-family
-!
-!         
+service timestamps debug datetime msec                                          
+service timestamps log datetime msec                                            
+! Call-home is enabled by Smart-Licensing.                                      
+service call-home                                                               
+platform punt-keepalive disable-kernel-core                                     
+!                                                                               
+hostname SwitchL3EPOKA                                                            
+!                                                                               
+!                                                                               
+vrf definition Mgmt-vrf                                                         
+ !                                                                              
+ address-family ipv4                                                            
+ exit-address-family                                                            
+ !                                                                              
+ address-family ipv6                                                            
+ exit-address-family                                                            
+!                                                                               
+!       
 !
 !
 !
@@ -40,46 +40,17 @@ ip routing
 !
 login on-success log
 !
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
 crypto pki trustpoint TP-self-signed-3639644206
  enrollment selfsigned
  subject-name cn=IOS-Self-Signed-Certificate-3639644206
  revocation-check none
  rsakeypair TP-self-signed-3639644206
 !
-crypto pki trustpoint SLA-TrustPoint
- enrollment pkcs12
- revocation-check crl
 !
-!
-crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01
-  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
-  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 33363339 36343432 3036301E 170D3235 31313132 30373236 
-  33335A17 0D333531 31313230 37323633 335A3031 312F302D 06035504 03132649 
-  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
-  34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100E0B5 B80B17AE 49C14F03 2B416DAB 6AFC414E 8E7B10A6 D915DDF8 
-  312556A7 504439D5 F99FA975 66E7C9B9 360C7556 4F5CC63F DB66C710 B05F452E 
-  FCFB1372 AC71A03B 98348A2A E9D1A583 B166A084 8C9A4373 A7EF4A76 6D867BD2 
-  71A13101 0A6FB9BF 85247D73 CD5D493C 5B662B48 029B4ACD F1DBD287 36AA0594 
-  FE1364CF B883BE71 AEAB4B5C 39548086 4BFBAFDC FB17F9FF 911B2ECF 5D2E5E27 
-  B4822B5A 2BD1CFCE FF08A1B4 055CD53F ED109F62 39194949 8F758826 781DC813 
-  AF654F02 712BA164 721080ED 437629E5 2D0DAAE4 B386E4EF 2658DEDD 88F2B017 
-  5585B116 AC803726 2CB8255A B0BBFEE3 CF0DB157 38A8E3EE 3E4467CB E9ECA3AC 
-  19C2B483 5A0D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 14B90D14 B29326F9 5AED8ED6 8947EBFB 8613EDEB 
-  61301D06 03551D0E 04160414 B90D14B2 9326F95A ED8ED689 47EBFB86 13EDEB61 
-  300D0609 2A864886 F70D0101 05050003 82010100 640801A5 8C365C61 F16E7CBF 
-  CE26D0C6 9DA401B8 7056AEDB A80D5A66 FBC35DA3 5C6A4C2E 1AA35F1B 165B08F6 
-  FABAC361 FF731E0D 5E8EFA68 90B43683 FD643A91 BC6983D9 D1A2EE51 AAC342CD 
-  F878D324 1B1D3900 46A77E72 7815270E 655956FA 6C9AB662 87281580 AE3C4CB7 
-  BDE707C5 501AD9A0 BD0A6528 93886D00 ABC663F0 D1E8D128 1749559E 24FE0CDF 
-  1295FA86 363A45A6 3C68BA3B 64870E99 56B75155 DBBEF4AA 7F4E88D6 BE7D765C 
-  1D4496E7 6D4FE6F9 291907B3 7318E97C 3184D2C7 9A9A433A D0E5D74C 6E002301 
-  797BD8DD D8C2DAC9 C109279B 6EDA7019 A513488B 227195A6 EBA6E086 13E88F95 
-  83D5EC60 83A39E18 FAC87F04 41A7F62E BFA3823C
-        quit
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01
   30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 
@@ -108,6 +79,35 @@ crypto pki certificate chain SLA-TrustPoint
   80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
   418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
   D697DF7F 28
+        quit
+crypto pki certificate chain TP-self-signed-3639644206
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33363339 36343432 3036301E 170D3235 31303036 30373533 
+  32375A17 0D333531 30303630 37353332 375A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
+  34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100E33A D2038552 1469DD99 F7C92E05 00C9D626 F69E9F25 DC400598 
+  99EF55FD 39EB27B5 1D2FF594 1DCCDE79 1A619E7B DE7054D4 0A73096A 09BA3EBF 
+  8F3EC86D FD2F0198 7125C09D 3D293E84 2CE63604 C82A8A84 E559CAE6 7A5CFD9B 
+  5F455E27 E20F5E0A 4F4EA6DF B6ADA130 D4BD2A65 BEA76744 9F7930A1 4797A21E 
+  06AA07BB 28E0D8E6 0EB01D90 352F27B8 07100AF8 ED8E0769 3F58324D 74949718 
+  C6068B02 67DB5F6D 50ECD54B 41ECDACB 01CB8070 122B3E62 1F64C86D CAC92C14 
+  503D11DD C071586B 9EE8AB07 800E3A44 A1190AD7 73C481DD 23864EA9 AC89BBBD 
+  AC48DD5E 1E7C7654 407106A6 023CEB35 6A4493A2 B5858D5B 339399C9 BAC17D5F 
+  BEA318EA 0F8D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 140A57EC 085F21AB BFB80243 218C6C44 E457AB4B 
+  47301D06 03551D0E 04160414 0A57EC08 5F21ABBF B8024321 8C6C44E4 57AB4B47 
+  300D0609 2A864886 F70D0101 05050003 82010100 8087F15B 8FF27274 8F2DDD80 
+  95131276 651346E2 8FE0FCCD D8A2B7E7 AB940406 1FFE11D8 A6B4D6A2 1C03318A 
+  C192BB9C B5193A9F BE3E88EA F27275CC 95C27A48 F32BDD35 4196BB90 DAAE9D09 
+  564540A2 16369BF7 F83C335B E6CD6BFD E5642315 27D5DE86 3E57FCF6 215188F6 
+  907745E5 C5451637 1A5AE539 CDE6C6AD E8946F15 2B2D08E2 A32C30ED 181F5496 
+  D9EB60E5 18C3A215 1489E357 E976A260 77E02715 17FE7F58 8C191B7A 5056D0FC 
+  53355331 BF2B8C6A 5CDE1BC6 30A9746B 4BDDAF30 7CEF4790 0D7167AB ACAD5044 
+  EE7D4557 A12A2184 563EFC0A A3A0CE08 74ECEE24 AA49F59A EE93E9B2 F052E774 
+  ACA9EC7D FC914EE1 B3F6652D 533BEB2A D414BE6A
         quit
 !
 license boot level network-essentials addon dna-essentials
@@ -170,14 +170,14 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2d
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,NflSampled,RpfFailed
 !
 policy-map system-cpp-policy
 !
 ! 
 !
 !
-!         
+!
 !
 !
 !
@@ -193,43 +193,35 @@ interface GigabitEthernet0/0
  shutdown
 !
 interface GigabitEthernet1/0/1
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 11
  switchport mode access
 !
 interface GigabitEthernet1/0/2
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 21
  switchport mode access
 !
 interface GigabitEthernet1/0/3
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 31
  switchport mode access
 !
 interface GigabitEthernet1/0/4
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 41
  switchport mode access
 !
 interface GigabitEthernet1/0/5
  switchport access vlan 53
- switchport trunk allowed vlan 53
  switchport mode access
 !
 interface GigabitEthernet1/0/6
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 61
  switchport mode access
 !
 interface GigabitEthernet1/0/7
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 71
  switchport mode access
 !
 interface GigabitEthernet1/0/8
- switchport access vlan 53
- switchport trunk allowed vlan 53
+ switchport access vlan 54
  switchport mode access
 !
 interface GigabitEthernet1/0/9
@@ -241,7 +233,7 @@ interface GigabitEthernet1/0/11
 interface GigabitEthernet1/0/12
 !
 interface GigabitEthernet1/0/13
-!
+!         
 interface GigabitEthernet1/0/14
 !
 interface GigabitEthernet1/0/15
@@ -261,15 +253,13 @@ interface GigabitEthernet1/0/21
 interface GigabitEthernet1/0/22
 !
 interface GigabitEthernet1/0/23
- switchport access vlan 33
- switchport mode access
 !
 interface GigabitEthernet1/0/24
- switchport trunk allowed vlan 10,20,53
+ switchport trunk allowed vlan 11,21,31,41,53,61,71
  switchport mode trunk
 !
 interface GigabitEthernet1/1/1
-!         
+!
 interface GigabitEthernet1/1/2
 !
 interface GigabitEthernet1/1/3
@@ -277,33 +267,48 @@ interface GigabitEthernet1/1/3
 interface GigabitEthernet1/1/4
 !
 interface Vlan1
- ip address 172.16.1.23 255.255.255.0
+ no ip address
  shutdown
 !
-interface Vlan10
- ip address 192.168.3.190 255.255.255.192
- ip helper-address 192.168.3.2
- ip helper-address 192.168.3.1
+interface Vlan11
+ ip address 192.168.3.65 255.255.255.224
+ ip helper-address 172.16.53.2
 !
-interface Vlan20
- ip address 192.168.3.206 255.255.255.240
- ip helper-address 192.168.3.2
- ip helper-address 192.168.3.1
+interface Vlan21
+ ip address 192.168.3.161 255.255.255.224
+ ip helper-address 172.16.53.2
+!
+interface Vlan31
+ ip address 192.168.3.193 255.255.255.224
+ ip helper-address 172.16.53.2
 !
 interface Vlan33
- ip address 192.168.33.253 255.255.255.240
- ip helper-address 192.168.3.2
+ no ip address
+!
+interface Vlan41
+ ip address 192.168.3.225 255.255.255.240
+ ip helper-address 172.16.53.2
 !
 interface Vlan53
- ip address 192.168.3.126 255.255.255.128
- ip helper-address 192.168.3.2
+ ip address 172.16.53.253 255.255.255.0
+ ip helper-address 172.16.53.2
+!
+interface Vlan54
+ ip address 192.168.33.253 255.255.255.240
+!
+interface Vlan61
+ ip address 192.168.3.1 255.255.255.192
+ ip helper-address 172.16.53.2
+!
+interface Vlan71
+ ip address 192.168.3.129 255.255.255.224
+ ip helper-address 172.16.53.2
 !
 ip forward-protocol nd
 ip http server
 ip http authentication local
 ip http secure-server
 ip route 0.0.0.0 0.0.0.0 192.168.33.254
-ip ssh version 2
 !
 !
 !
@@ -316,7 +321,7 @@ line con 0
  stopbits 1
 line aux 0
 line vty 0 4
- login local
+ login
  transport input ssh
 line vty 5 15
  login
@@ -324,7 +329,7 @@ line vty 5 15
 !
 call-home
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
- ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH not.
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
  contact-email-addr sch-smart-licensing@cisco.com
  profile "CiscoTAC-1"
   active
@@ -336,5 +341,4 @@ call-home
 !
 !
 end
-
 ```
