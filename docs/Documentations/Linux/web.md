@@ -224,19 +224,38 @@ sudo nano scanner.conf
 ```
 
 ```
-<VirtualHost  *:80>
+<VirtualHost *:80>
     ServerName scanner1.californie.cub.sioplc.fr
     DocumentRoot /var/www/command-attack
     DirectoryIndex index.php
+
     <Directory "/var/www/command-attack">
-          Options -Indexes
-          AllowOverride All
-          Require all granted
+        Options -Indexes
+        AllowOverride All
+
+        # --- Restriction IP ---
+        <RequireAll>
+            Require ip 192.168.3.192/28
+
+            # --- Authentification Basic ---
+            AuthType Basic
+            AuthName "Zone protégée"
+            AuthUserFile /etc/apache2/sites-available/scanner1.htpasswd
+            Require valid-user
+        </RequireAll>
     </Directory>
+
     ErrorLog ${APACHE_LOG_DIR}/error-wp.log
     LogLevel warn
     CustomLog ${APACHE_LOG_DIR}/access.log combined
-</Virtualhost>
+</VirtualHost>
+```
+
+```sh
+sudo htpasswd -c /etc/apache2/sites-available/scanner1.htpasswd etudiant
+New password: 
+Re-type new password: 
+Adding password for user etudiant
 ```
 
 ### Activation :
