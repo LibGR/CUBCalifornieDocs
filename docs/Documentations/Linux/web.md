@@ -253,7 +253,7 @@ sudo nano scanner.conf
 
 ```sh
 sudo htpasswd -c /etc/apache2/sites-available/scanner1.htpasswd etudiant
-New password: 
+New password: etudiant_007
 Re-type new password: 
 Adding password for user etudiant
 ```
