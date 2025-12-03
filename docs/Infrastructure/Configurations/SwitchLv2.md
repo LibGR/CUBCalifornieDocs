@@ -6,7 +6,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname SwitchLv2
+hostname SwitchLv2CUB
 !
 boot-start-marker
 boot-end-marker
