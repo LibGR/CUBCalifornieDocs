@@ -170,7 +170,7 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,NflSampled,RpfFailed
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,d
 !
 policy-map system-cpp-policy
 !
