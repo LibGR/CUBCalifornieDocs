@@ -1,24 +1,24 @@
 # Configuration du SwitchLv3
 ```
 version 17.6
-service timestamps debug datetime msec                                          
-service timestamps log datetime msec                                            
-! Call-home is enabled by Smart-Licensing.                                      
-service call-home                                                               
-platform punt-keepalive disable-kernel-core                                     
-!                                                                               
-hostname SwitchL3EPOKA                                                            
-!                                                                               
-!                                                                               
-vrf definition Mgmt-vrf                                                         
- !                                                                              
- address-family ipv4                                                            
- exit-address-family                                                            
- !                                                                              
- address-family ipv6                                                            
- exit-address-family                                                            
-!                                                                               
-!       
+service timestamps debug datetime msec
+service timestamps log datetime msec
+! Call-home is enabled by Smart-Licensing.
+service call-home
+platform punt-keepalive disable-kernel-core
+!
+hostname SwitchL3EPOKA
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!         
 !
 !
 !
@@ -84,30 +84,30 @@ crypto pki certificate chain TP-self-signed-3639644206
  certificate self-signed 01
   30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
   31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 33363339 36343432 3036301E 170D3235 31303036 30373533 
-  32375A17 0D333531 30303630 37353332 375A3031 312F302D 06035504 03132649 
+  69666963 6174652D 33363339 36343432 3036301E 170D3235 31323038 31303432 
+  34375A17 0D333531 32303831 30343234 375A3031 312F302D 06035504 03132649 
   4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
   34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100E33A D2038552 1469DD99 F7C92E05 00C9D626 F69E9F25 DC400598 
-  99EF55FD 39EB27B5 1D2FF594 1DCCDE79 1A619E7B DE7054D4 0A73096A 09BA3EBF 
-  8F3EC86D FD2F0198 7125C09D 3D293E84 2CE63604 C82A8A84 E559CAE6 7A5CFD9B 
-  5F455E27 E20F5E0A 4F4EA6DF B6ADA130 D4BD2A65 BEA76744 9F7930A1 4797A21E 
-  06AA07BB 28E0D8E6 0EB01D90 352F27B8 07100AF8 ED8E0769 3F58324D 74949718 
-  C6068B02 67DB5F6D 50ECD54B 41ECDACB 01CB8070 122B3E62 1F64C86D CAC92C14 
-  503D11DD C071586B 9EE8AB07 800E3A44 A1190AD7 73C481DD 23864EA9 AC89BBBD 
-  AC48DD5E 1E7C7654 407106A6 023CEB35 6A4493A2 B5858D5B 339399C9 BAC17D5F 
-  BEA318EA 0F8D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 140A57EC 085F21AB BFB80243 218C6C44 E457AB4B 
-  47301D06 03551D0E 04160414 0A57EC08 5F21ABBF B8024321 8C6C44E4 57AB4B47 
-  300D0609 2A864886 F70D0101 05050003 82010100 8087F15B 8FF27274 8F2DDD80 
-  95131276 651346E2 8FE0FCCD D8A2B7E7 AB940406 1FFE11D8 A6B4D6A2 1C03318A 
-  C192BB9C B5193A9F BE3E88EA F27275CC 95C27A48 F32BDD35 4196BB90 DAAE9D09 
-  564540A2 16369BF7 F83C335B E6CD6BFD E5642315 27D5DE86 3E57FCF6 215188F6 
-  907745E5 C5451637 1A5AE539 CDE6C6AD E8946F15 2B2D08E2 A32C30ED 181F5496 
-  D9EB60E5 18C3A215 1489E357 E976A260 77E02715 17FE7F58 8C191B7A 5056D0FC 
-  53355331 BF2B8C6A 5CDE1BC6 30A9746B 4BDDAF30 7CEF4790 0D7167AB ACAD5044 
-  EE7D4557 A12A2184 563EFC0A A3A0CE08 74ECEE24 AA49F59A EE93E9B2 F052E774 
-  ACA9EC7D FC914EE1 B3F6652D 533BEB2A D414BE6A
+  0A028201 010096A9 3716A3A7 7EB36DEA 14DC5FBD AE03195C 79D89C10 EE238072 
+  81C6BA0E 3F8E4141 06BFEEB6 329D0C91 7E0A1019 89FF9192 B6B75676 B6EDC1B5 
+  4F7D0F82 D1DBCAA9 F3DAE09D 2A6D89D3 BCA04EEE D89DEFCA CDD6CDD8 8ADD3965 
+  B53FA4CB 8CCBD66F D1CBFB36 302D63DE 8EB54686 DE3007CA 4628A16E BF01C29B 
+  5F7A1CBF 43AAA68F AA816204 386A2004 7F6E3A0F 91B972F5 C98DB1C5 04A404CF 
+  4EDEB5C9 92163972 6FA57EAD 0C3A90D5 13B506F3 C18033CC 94DCC0D9 BAB059CF 
+  2B6C0AE1 8540AF86 9FEBB2B3 B2E71DAB 959BF0A5 63F8493B 515770FB 1F532302 
+  EE5B82B1 4956A013 6D0B5305 038DAE52 E9487F95 98B2DF3D 7453E6A0 A06AFECB 
+  0393AA2C 93810203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14788E28 6A90A0C5 B0279CA2 AA480083 B0731AB4 
+  B1301D06 03551D0E 04160414 788E286A 90A0C5B0 279CA2AA 480083B0 731AB4B1 
+  300D0609 2A864886 F70D0101 05050003 82010100 402B9380 B8A6C734 10838F80 
+  DC6EE189 9876BEBD 798EDADF FB036843 3C62D66A 93D72987 05996FAC 814D1173 
+  205887E2 90D9A48A 3FB373FA 26418DC8 D04BE4BD 0828FB10 910E5B6B 06B28BED 
+  234202DA 29FFA709 20B981A9 0AB8BBBD 314D5A76 8D8A73C7 03FD464E 5845705B 
+  D2E09D0B D70FF58B F63A4B6C D28E0AA1 D4088E38 2FD542B1 3A13BD0B 9BC87AFE 
+  549C676D CFD5D152 46965664 77F6DE53 46E4E370 0BC8FA04 67BC3DB7 D08CB57B 
+  BC2D1910 1EA573A0 70E2C812 9A034697 445BC4E7 4BE57703 738AA742 F94C7FC1 
+  5258269C CFAAF46D 035D289A 6A170C40 2982BBE2 41223599 EBAFB3EF A66878BA 
+  100F919B 63BB96B3 7414B93C F39E5F91 C867DD2D
         quit
 !
 license boot level network-essentials addon dna-essentials
@@ -170,14 +170,14 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,NflSampled,RpfFailed
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOTd
 !
 policy-map system-cpp-policy
 !
 ! 
 !
 !
-!
+!         
 !
 !
 !
@@ -223,7 +223,7 @@ interface GigabitEthernet1/0/7
 interface GigabitEthernet1/0/8
  switchport access vlan 54
  switchport mode access
-!
+!         
 interface GigabitEthernet1/0/9
 !
 interface GigabitEthernet1/0/10
@@ -233,7 +233,7 @@ interface GigabitEthernet1/0/11
 interface GigabitEthernet1/0/12
 !
 interface GigabitEthernet1/0/13
-!         
+!
 interface GigabitEthernet1/0/14
 !
 interface GigabitEthernet1/0/15
@@ -269,7 +269,7 @@ interface GigabitEthernet1/1/4
 interface Vlan1
  no ip address
  shutdown
-!
+!         
 interface Vlan11
  ip address 192.168.3.65 255.255.255.224
  ip helper-address 172.16.53.2
@@ -292,7 +292,7 @@ interface Vlan41
 interface Vlan53
  ip address 172.16.53.253 255.255.255.0
  ip helper-address 172.16.53.2
-!
+!         
 interface Vlan54
  ip address 192.168.33.253 255.255.255.240
 !
@@ -315,7 +315,7 @@ ip route 0.0.0.0 0.0.0.0 192.168.33.254
 !
 control-plane
  service-policy input system-cpp-policy
-!
+!         
 !
 line con 0
  stopbits 1
@@ -329,14 +329,14 @@ line vty 5 15
 !
 call-home
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
- ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ ! the email address configured in Cisco Smart License Portal will be used as contact email .
  contact-email-addr sch-smart-licensing@cisco.com
  profile "CiscoTAC-1"
   active
   destination transport-method http
 !
 !
-!
+!         
 !
 !
 !
