@@ -51,7 +51,7 @@ sudo chmod 600 /etc/security/users.oath
 Éditez le fichier PAM de SSH :
 
 ```bash
-sudo nano /etc/pam.d/sshd
+sudo nano /etc/pam.d/sshdv
 ```
 
 Ajoutez ou modifiez les lignes suivantes :
