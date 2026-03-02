@@ -35,10 +35,15 @@ switch 1 provision c9200l-24t-4g
 !
 ip routing
 !
+ip domain name cub.lan
 !
 !
 !
 login on-success log
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
 !
 crypto pki trustpoint TP-self-signed-3639644206
  enrollment selfsigned
@@ -46,40 +51,7 @@ crypto pki trustpoint TP-self-signed-3639644206
  revocation-check none
  rsakeypair TP-self-signed-3639644206
 !
-crypto pki trustpoint SLA-TrustPoint
- enrollment pkcs12
- revocation-check crl
 !
-!
-crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01
-  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
-  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 33363339 36343432 3036301E 170D3235 31323131 30393337 
-  30365A17 0D333531 32313130 39333730 365A3031 312F302D 06035504 03132649 
-  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
-  34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100D92A 6C6E8109 CAC7C98D E707F2F8 07A8F012 F45B8C5B 5DAE5732 
-  500C920F DA424092 9ED04190 39A3974C 6D42D91C EE750F03 4C203480 CAF2E7B6 
-  BDCE61C4 32900E7F AC1369FC EE64DEAC 43D2CB4C A2D33B76 ED0EEB19 AE9C3601 
-  D7AE0C83 1BC315BF 3E915F33 A699802E D723F8C9 35F065AE 9472BE6A 10227F73 
-  3DAE2DDB 1D3D81F6 B684851A 84E9E49B 80B8FD3B 0456903F 2B6FF91D 85B50217 
-  DAA90BC5 3887961C D06235B8 6EAFE592 C5AD7840 DE23B520 4C92273E EE105E95 
-  996A146A E78E3628 F89943BD B3C13DC2 25E58F8C 8F3C42D9 60C8905A C7BED366 
-  8BC1A9C2 A1F1CDAA 1717C94A AE107631 9EC28B9D 2FD50FB3 6360C5AA C9DFC6D9 
-  A4691B16 CA630203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 149D2A9C E5FC0159 025ED146 2F875192 85FCAD33 
-  64301D06 03551D0E 04160414 9D2A9CE5 FC015902 5ED1462F 87519285 FCAD3364 
-  300D0609 2A864886 F70D0101 05050003 82010100 5F3AC8A0 8304F0B0 1C2F1BC8 
-  002F9F54 F49DBB59 8A22AA23 9DC9D854 9AECCB73 7E7826AC 85086C50 6D4934F7 
-  BF98DC4D 95FA15FC 276CBB2B 269E7CF4 43A8E701 91853AB1 2098DA35 6A7705AA 
-  485F6C43 E24BA0F8 3AC6C512 24F6CD88 DEE81140 85652E3F 4F2A898B 90AF790D 
-  983E4A56 6CFA4622 F65260A8 BDEF9B5A 0E015A57 007D1223 085EA15E 8FC61759 
-  2DABACED EE76C13B 44ED00C5 2AD8DC06 C6D14A6A 43B9AD4C 79621ED5 027966DE 
-  6FB726B4 E83AEDD6 EF9D2415 11A9B8A1 5C5BB54F E003BF31 E4D1A13E 7499C040 
-  12A55715 21DB8619 520C2DBA 051C89F3 4B04B245 71B62F5B 6F85BF78 D5B07DEC 
-  CCA506D2 A0389288 B6A6DD34 5EE5A2AF 1EB518AE
-        quit
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01
   30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 
@@ -109,6 +81,38 @@ crypto pki certificate chain SLA-TrustPoint
   418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
   D697DF7F 28
         quit
+crypto pki certificate chain TP-self-signed-3639644206
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33363339 36343432 3036301E 170D3235 31323136 31333436 
+  33345A17 0D333531 32313631 33343633 345A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333936 
+  34343230 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100A106 749BCD9F 4A7FF5FE 6C4DEC2E F6AB08DF 01C49CE1 51DC05B8 
+  73124A92 77CFED41 522D7D62 9E83DD02 8F746893 261247E9 6AEEF7A5 71B5B10A 
+  4E7023AA 4F20CFC6 D395617B 72E9737F 5D0C2B94 42B4F19D DC221757 2D16D94F 
+  98F10119 FC886D78 E51F184B E462A69D CA7B71B4 B4BC3F94 D25E685C 2B8E6ABF 
+  AB21B001 37905011 1089E5AF 6CAE053D 092D7826 18F44040 15CCC191 2BAB27FA 
+  4246FAF0 C3541BEF 942AB86B 54DFC40F 63C93356 9C0FF391 6F48858F 41888264 
+  A74935FF 723040B4 2A7EBA0D 028DA5EA E442248E 9741FB41 545E25B7 8CC9C8F9 
+  D61FFB92 BDBA38C6 C962554D 44C78B93 87A80DAE 3C034F48 E725C1A3 1213608E 
+  4DB8B60D AA030203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 140D098E C457F56B 213CFBE9 B8521B57 0B430105 
+  D6301D06 03551D0E 04160414 0D098EC4 57F56B21 3CFBE9B8 521B570B 430105D6 
+  300D0609 2A864886 F70D0101 05050003 82010100 707E0122 0CCF0AF5 402747A6 
+  84D75ED2 01E94D3B 41432E84 A8FA4B0E CC7CE395 69C963A4 884487FE E240A58A 
+  2ED5C651 DFE0FB9F 8D0DA620 926F3659 8C2EF896 25E4C78E 0BD15365 89BF6A8A 
+  B9E997B7 8BE29E38 0035E48F 34C887C4 4FF7886F D7079065 6BD7DE2D 838BE94E 
+  0712E99A 3F5206AE 2AC9A9D3 F76FCC3E D6BCA28C BA09A775 4CCD8531 F49EA7CE 
+  47FEC4FB 6BE178A9 BC4AD4A5 64A448A6 BCDE5066 40044B26 B90C1EC4 0D9F91F5 
+  C6CD0548 1A7DB43D DB48330C 18109361 7A19C88A 781031C2 5C22E721 F94FFBDD 
+  70F2CEFF DEABC093 3129B94E F60DAC65 CB0F881E A56B2463 374354CB 1FDFC608 
+  EE2316D4 629317BB C512D324 FA6C60C1 6CD1666F
+        quit
+!         
+crypto pki certificate pool
+ cabundle nvram:ios_core.p7b
 !
 license boot level network-essentials addon dna-essentials
 !
@@ -119,6 +123,7 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 memory free low-watermark processor 10626
 !
+username etudiant privilege 15 secret 9 $9$D/hh3TaVW8VEF.$FZObadhOIwXPzr0wuIO5/Y8Z1VOcXuyuDf.
 !
 redundancy
  mode sso
@@ -127,27 +132,30 @@ redundancy
 transceiver type all
  monitoring
 !
-!
+!         
 class-map match-any system-cpp-police-ewlc-control
-  description EWLC Control 
+  description EWLC Control
 class-map match-any system-cpp-police-topology-control
   description Topology control
 class-map match-any system-cpp-police-sw-forward
   description Sw forwarding, L2 LVX data packets, LOGGING, Transit Traffic
 class-map match-any system-cpp-default
-  description EWLC data, Inter FED Traffic 
+  description EWLC data, Inter FED Traffic
 class-map match-any system-cpp-police-sys-data
   description Openflow, Exception, EGR Exception, NFL Sampled Data, RPF Failed
+class-map match-any system-cpp-police-ios-routin
 class-map match-any system-cpp-police-punt-webauth
   description Punt Webauth
 class-map match-any system-cpp-police-l2lvx-control
   description L2 LVX control packets
+class-map match-any system-cpp-police-multicas1x-auth
+  description DOT1X Auth
 class-map match-any system-cpp-police-forus
   description Forus Address resolution and Forus traffic
 class-map match-any system-cpp-police-multicast-end-station
   description MCAST END STATION
 class-map match-any system-cpp-police-high-rate-app
-  description High Rate Applications 
+  description High Rate Applications
 class-map match-any system-cpp-police-multicast
   description MCAST Data
 class-map match-any system-cpp-police-l2-control
@@ -170,14 +178,14 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOTd
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT 
 !
 policy-map system-cpp-policy
 !
 ! 
 !
 !
-!         
+!
 !
 !
 !
@@ -191,7 +199,7 @@ interface GigabitEthernet0/0
  vrf forwarding Mgmt-vrf
  no ip address
  shutdown
-!
+!         
 interface GigabitEthernet1/0/1
  switchport access vlan 53
  switchport trunk allowed vlan 53
@@ -237,10 +245,12 @@ interface GigabitEthernet1/0/9
 interface GigabitEthernet1/0/10
 !
 interface GigabitEthernet1/0/11
-!
+!         
 interface GigabitEthernet1/0/12
 !
 interface GigabitEthernet1/0/13
+ switchport access vlan 54
+ switchport mode access
 !
 interface GigabitEthernet1/0/14
 !
@@ -269,7 +279,7 @@ interface GigabitEthernet1/0/24
  switchport mode trunk
 !
 interface GigabitEthernet1/1/1
-!         
+!
 interface GigabitEthernet1/1/2
 !
 interface GigabitEthernet1/1/3
@@ -300,6 +310,9 @@ interface Vlan53
  ip address 192.168.3.126 255.255.255.128
  ip helper-address 192.168.3.2
 !
+interface Vlan54
+ ip address 192.168.131.254 255.255.255.0
+!
 ip forward-protocol nd
 ip http server
 ip http authentication local
@@ -324,7 +337,7 @@ line vty 5 15
  login
  transport input ssh
 !
-call-home
+call-home 
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
  ! the email address configured in Cisco Smart License Portal will be used as contact email .
  contact-email-addr sch-smart-licensing@cisco.com
@@ -336,8 +349,7 @@ call-home
 !
 !
 !
-!         
+!
 end
-
 ```
 
