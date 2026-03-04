@@ -117,7 +117,7 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwdd
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,d
 !
 policy-map system-cpp-policy
 !
@@ -274,9 +274,10 @@ ip access-list extended reseau-admin
  90 permit ip 192.168.3.192 0.0.0.15 host 192.168.3.111
  100 permit udp 192.168.3.192 0.0.0.15 host 192.168.3.10 eq domain
  110 permit udp 192.168.3.192 0.0.0.15 host 192.168.3.11 eq domain
- 120 permit tcp 192.168.3.192 0.0.0.15 host 192.168.3.125 eq 443
- 130 deny   ip 192.168.3.192 0.0.0.15 192.168.3.0 0.0.0.127
- 140 permit ip 192.168.3.192 0.0.0.15 any
+ 120 permit tcp 192.168.3.192 0.0.0.15 host 192.168.3.125 eq 8080
+ 130 permit tcp 192.168.3.192 0.0.0.15 host 192.168.3.12 eq 443
+ 140 deny   ip 192.168.3.192 0.0.0.15 192.168.3.0 0.0.0.127
+ 150 permit ip 192.168.3.192 0.0.0.15 any
 ip access-list extended reseau-client
  10 permit tcp any any established
  20 permit icmp 192.168.3.128 0.0.0.63 any echo-reply
@@ -293,17 +294,20 @@ ip access-list extended reseau-client
  130 deny   ip 192.168.3.128 0.0.0.63 192.168.3.0 0.0.0.127
  140 permit ip 192.168.3.128 0.0.0.63 any
 ip access-list extended reseau-production
- 10 permit udp 192.168.3.0 0.0.0.127 any eq bootps
- 20 permit udp any eq bootps 192.168.3.0 0.0.0.127 eq bootpc
- 30 permit tcp any any established
- 40 permit icmp 192.168.3.0 0.0.0.127 any echo-reply
- 50 permit udp host 192.168.3.10 eq domain any
- 60 permit udp host 192.168.3.11 eq domain any
- 70 permit udp host 192.168.3.1 eq domain any
- 80 permit udp host 192.168.3.2 eq domain any
- 90 deny   ip 192.168.3.0 0.0.0.127 192.168.3.192 0.0.0.15
- 100 deny   ip 192.168.3.0 0.0.0.127 192.168.3.128 0.0.0.63
- 110 permit ip 192.168.3.0 0.0.0.127 any
+ 10 permit udp any eq bootpc any eq bootps
+ 20 permit udp host 192.168.3.1 eq bootps host 192.168.3.190 eq bootps
+ 30 permit udp host 192.168.3.190 eq bootps host 192.168.3.1 eq bootps
+ 40 permit udp host 192.168.3.3 eq bootps host 192.168.3.190 eq bootps
+ 50 permit udp host 192.168.3.190 eq bootps host 192.168.3.3 eq bootps
+ 60 permit tcp any any established
+ 70 permit icmp 192.168.3.0 0.0.0.127 any echo-reply
+ 80 permit udp host 192.168.3.10 eq domain any
+ 90 permit udp host 192.168.3.11 eq domain any
+ 100 permit udp host 192.168.3.1 eq domain any
+ 110 permit udp host 192.168.3.2 eq domain any
+ 120 deny   ip 192.168.3.0 0.0.0.127 192.168.3.192 0.0.0.15
+ 130 deny   ip 192.168.3.0 0.0.0.127 192.168.3.128 0.0.0.63
+ 140 permit ip 192.168.3.0 0.0.0.127 any
 !
 !
 control-plane
@@ -322,7 +326,7 @@ line vty 5 15
 !
 call-home
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
- ! the email address configured in Cisco Smart License Portal will be used as contact email address to s.
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
  contact-email-addr sch-smart-licensing@cisco.com
  profile "CiscoTAC-1"
   active
@@ -333,6 +337,6 @@ call-home
 !
 !
 !
-end
+end  
 ```
 
