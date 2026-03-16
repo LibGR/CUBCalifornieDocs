@@ -18,8 +18,8 @@ system mtu routing 1500
 !
 !
 ip domain-name btssio3.lan
-!         
 !
+!         
 crypto pki trustpoint TP-self-signed-2716685696
  enrollment selfsigned
  subject-name cn=IOS-Self-Signed-Certificate-2716685696
@@ -91,7 +91,7 @@ interface FastEthernet0/12
  switchport mode access
 !
 interface FastEthernet0/13
-!
+!         
 interface FastEthernet0/14
 !
 interface FastEthernet0/15
@@ -163,7 +163,7 @@ interface FastEthernet0/36
  switchport mode access
 !
 interface FastEthernet0/37
-!
+!         
 interface FastEthernet0/38
 !
 interface FastEthernet0/39
@@ -186,7 +186,7 @@ interface FastEthernet0/46
 interface FastEthernet0/47
  switchport trunk allowed vlan 10,20,53
  switchport mode trunk
-!         
+!
 interface FastEthernet0/48
 !
 interface GigabitEthernet0/1
@@ -210,6 +210,6 @@ line vty 0 4
  transport input ssh
 line vty 5 15
  login
-!         
+!
 end
 ```
