@@ -43,7 +43,7 @@ vlan internal allocation policy ascending
 interface FastEthernet0/1
  switchport access vlan 11
  switchport mode access
-!         
+!
 interface FastEthernet0/2
  switchport access vlan 11
  switchport mode access
@@ -67,7 +67,7 @@ interface FastEthernet0/6
 interface FastEthernet0/7
  switchport access vlan 21
  switchport mode access
-!         
+!
 interface FastEthernet0/8
  switchport access vlan 21
  switchport mode access
@@ -91,7 +91,7 @@ interface FastEthernet0/12
 interface FastEthernet0/13
  switchport access vlan 41
  switchport mode access
-!         
+!
 interface FastEthernet0/14
  switchport access vlan 41
  switchport mode access
@@ -115,7 +115,7 @@ interface FastEthernet0/18
 interface FastEthernet0/19
  switchport access vlan 53
  switchport mode access
-!         
+!
 interface FastEthernet0/20
  switchport access vlan 53
  switchport mode access
@@ -139,7 +139,7 @@ interface FastEthernet0/24
 interface FastEthernet0/25
  switchport access vlan 71
  switchport mode access
-!         
+!
 interface FastEthernet0/26
  switchport access vlan 71
  switchport mode access
@@ -163,7 +163,7 @@ interface FastEthernet0/32
 interface FastEthernet0/33
 !
 interface FastEthernet0/34
-!         
+!
 interface FastEthernet0/35
 !
 interface FastEthernet0/36
@@ -187,7 +187,7 @@ interface FastEthernet0/44
 interface FastEthernet0/45
 !
 interface FastEthernet0/46
-!         
+!
 interface FastEthernet0/47
  switchport trunk allowed vlan 11,21,31,41,53,61,71
  switchport mode trunk
@@ -202,15 +202,40 @@ interface Vlan1
  no ip address
  shutdown
 !
+interface Vlan53
+ ip address 172.16.53.251 255.255.255.0
+!
 ip http server
 ip http secure-server
+snmp-server group ReadOnly v3 priv read ReadOnly-View 
+snmp-server view ReadOnly-View iso included
+snmp-server location Agence CL CUB
+snmp-server contact postmaster@californie.cub.sioplc.fr
 !
-!
+!         
 line con 0
 line vty 0 4
  login
 line vty 5 15
  login
-!         
+!
+!
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!PARTIE A SAUVEGARDER A LA BASCULE
+!
+!
+snmp-server user zabbix ReadOnly v3 auth sha etudiant_007 priv aes 128 azerty2QWERTY
+!
+!
+do write
+!
 end
 ```
