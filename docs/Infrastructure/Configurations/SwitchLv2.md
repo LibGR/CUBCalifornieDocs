@@ -27,6 +27,8 @@ crypto pki trustpoint TP-self-signed-2716685696
  rsakeypair TP-self-signed-2716685696
 !
 !
+crypto pki certificate chain TP-self-signed-2716685696
+ certificate self-signed 01 nvram:IOS-Self-Sig#E.cer
 !
 !
 !
@@ -41,7 +43,7 @@ vlan internal allocation policy ascending
 !
 !
 !
-!
+!         
 interface FastEthernet0/1
  switchport access vlan 10
  switchport mode access
@@ -65,7 +67,7 @@ interface FastEthernet0/5
 interface FastEthernet0/6
  switchport access vlan 10
  switchport mode access
-!
+!         
 interface FastEthernet0/7
  switchport access vlan 10
  switchport mode access
@@ -89,9 +91,9 @@ interface FastEthernet0/11
 interface FastEthernet0/12
  switchport access vlan 10
  switchport mode access
-!
-interface FastEthernet0/13
 !         
+interface FastEthernet0/13
+!
 interface FastEthernet0/14
 !
 interface FastEthernet0/15
@@ -113,7 +115,7 @@ interface FastEthernet0/22
 interface FastEthernet0/23
 !
 interface FastEthernet0/24
-!
+!         
 interface FastEthernet0/25
  switchport access vlan 20
  switchport mode access
@@ -137,7 +139,7 @@ interface FastEthernet0/29
 interface FastEthernet0/30
  switchport access vlan 20
  switchport mode access
-!
+!         
 interface FastEthernet0/31
  switchport access vlan 20
  switchport mode access
@@ -161,9 +163,9 @@ interface FastEthernet0/35
 interface FastEthernet0/36
  switchport access vlan 20
  switchport mode access
-!
-interface FastEthernet0/37
 !         
+interface FastEthernet0/37
+!
 interface FastEthernet0/38
 !
 interface FastEthernet0/39
@@ -209,7 +211,10 @@ line vty 0 4
  login local
  transport input ssh
 line vty 5 15
- login
+ login    
 !
+!
+monitor session 1 source interface Fa0/2 , Fa0/47
+monitor session 1 destination interface Fa0/13
 end
 ```

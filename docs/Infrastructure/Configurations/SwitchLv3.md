@@ -40,21 +40,21 @@ ip routing
 !
 login on-success log
 !
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
 crypto pki trustpoint TP-self-signed-3639644206
  enrollment selfsigned
  subject-name cn=IOS-Self-Signed-Certificate-3639644206
  revocation-check none
  rsakeypair TP-self-signed-3639644206
 !
-crypto pki trustpoint SLA-TrustPoint
- enrollment pkcs12
- revocation-check crl
 !
-!
-crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01 nvram:IOS-Self-Sig#1D.cer
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01 nvram:CiscoLicensi#1CA.cer
+crypto pki certificate chain TP-self-signed-3639644206
+ certificate self-signed 01 nvram:IOS-Self-Sig#1F.cer
 !
 license boot level network-essentials addon dna-essentials
 !
@@ -116,7 +116,7 @@ class-map match-any system-cpp-police-ios-routing
 class-map match-any system-cpp-police-system-critical
   description System Critical and Gold Pkt
 class-map match-any system-cpp-police-ios-feature
-  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOTd
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,d
 !
 policy-map system-cpp-policy
 !
@@ -325,7 +325,7 @@ line vty 5 15
 !
 call-home
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
- ! the email address configured in Cisco Smart License Portal will be used as contact email .
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
  contact-email-addr sch-smart-licensing@cisco.com
  profile "CiscoTAC-1"
   active
