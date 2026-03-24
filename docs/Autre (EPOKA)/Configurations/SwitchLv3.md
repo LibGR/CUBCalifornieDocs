@@ -3,6 +3,7 @@
 version 17.6
 service timestamps debug datetime msec
 service timestamps log datetime msec
+! Call-home is enabled by Smart-Licensing.
 service call-home
 platform punt-keepalive disable-kernel-core
 !
@@ -18,8 +19,8 @@ vrf definition Mgmt-vrf
  exit-address-family
 !
 !
-!
 !         
+!
 !
 no aaa new-model
 switch 1 provision c9200l-24t-4g
@@ -42,7 +43,7 @@ login on-success log
 crypto pki trustpoint SLA-TrustPoint
  enrollment pkcs12
  revocation-check crl
-!         
+!
 crypto pki trustpoint TP-self-signed-3639644206
  enrollment selfsigned
  subject-name cn=IOS-Self-Signed-Certificate-3639644206
@@ -53,7 +54,7 @@ crypto pki trustpoint TP-self-signed-3639644206
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01 nvram:CiscoLicensi#1CA.cer
 crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01 nvram:IOS-Self-Sig#1E.cer
+ certificate self-signed 01 nvram:IOS-Self-Sig#20.cer
 !
 license boot level network-essentials addon dna-essentials
 !
@@ -64,7 +65,7 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 memory free low-watermark processor 10626
 !
-!
+!         
 redundancy
  mode sso
 !
@@ -131,7 +132,7 @@ policy-map system-cpp-policy
 !
 !
 !
-!
+!         
 interface GigabitEthernet0/0
  vrf forwarding Mgmt-vrf
  no ip address
@@ -178,7 +179,7 @@ interface GigabitEthernet1/0/11
 interface GigabitEthernet1/0/12
 !
 interface GigabitEthernet1/0/13
-!         
+!
 interface GigabitEthernet1/0/14
 !
 interface GigabitEthernet1/0/15
@@ -270,7 +271,7 @@ line con 0
  stopbits 1
 line aux 0
 line vty 0 4
- login    
+ login
  transport input ssh
 line vty 5 15
  login
@@ -283,6 +284,8 @@ call-home
  profile "CiscoTAC-1"
   active
   destination transport-method http
+!
+!
 !
 !
 !

@@ -18,7 +18,6 @@ system mtu routing 1500
 !
 !
 !
-!
 crypto pki trustpoint TP-self-signed-2716685696
  enrollment selfsigned
  subject-name cn=IOS-Self-Signed-Certificate-2716685696
@@ -211,14 +210,11 @@ ip http secure-server
 snmp-server group ReadOnly v3 priv read ReadOnly-View 
 snmp-server view ReadOnly-View iso included
 snmp-server location Agence CL CUB
-snmp-server contact postmaster@californie.cub.sioplc.fr
+snmp-server contact postmaster@californie.cub.si
 !
 !         
 line con 0
-line vty 0 4
- login
 line vty 5 15
- login
 !
 !
 !PARTIE A SAUVEGARDER A LA BASCULE
