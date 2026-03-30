@@ -83,6 +83,20 @@ interface FastEthernet0/9
 interface FastEthernet0/10
  switchport access vlan 10
  switchport mode access
+ switchport port-security maximum 10
+ switchport port-security
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0023.910a.a70f
+ switchport port-security mac-address sticky 0afb.077c.8c3f
+ switchport port-security mac-address sticky 1ab8.ee1f.6970
+ switchport port-security mac-address sticky 6a9a.4635.d5be
+ switchport port-security mac-address sticky 6c1f.f715.aac1
+ switchport port-security mac-address sticky 8888.bf7e.8899
+ switchport port-security mac-address sticky d2fc.1e39.9128
+ switchport port-security mac-address sticky e26f.8e0f.41d1
+ switchport port-security mac-address sticky e4de.a578.1d1e
+ switchport port-security mac-address sticky ea0f.c97f.696f
 !
 interface FastEthernet0/11
  switchport access vlan 10
@@ -91,7 +105,7 @@ interface FastEthernet0/11
 interface FastEthernet0/12
  switchport access vlan 10
  switchport mode access
-!         
+!
 interface FastEthernet0/13
 !
 interface FastEthernet0/14
@@ -101,7 +115,7 @@ interface FastEthernet0/15
 interface FastEthernet0/16
 !
 interface FastEthernet0/17
-!
+!         
 interface FastEthernet0/18
 !
 interface FastEthernet0/19
@@ -115,7 +129,7 @@ interface FastEthernet0/22
 interface FastEthernet0/23
 !
 interface FastEthernet0/24
-!         
+!
 interface FastEthernet0/25
  switchport access vlan 20
  switchport mode access
@@ -139,7 +153,7 @@ interface FastEthernet0/29
 interface FastEthernet0/30
  switchport access vlan 20
  switchport mode access
-!         
+!
 interface FastEthernet0/31
  switchport access vlan 20
  switchport mode access
@@ -163,7 +177,7 @@ interface FastEthernet0/35
 interface FastEthernet0/36
  switchport access vlan 20
  switchport mode access
-!         
+!
 interface FastEthernet0/37
 !
 interface FastEthernet0/38
@@ -197,7 +211,7 @@ interface GigabitEthernet0/2
 !
 interface Vlan1
  no ip address
- shutdown
+ shutdown 
 !
 interface Vlan20
  ip address 192.168.3.205 255.255.255.240
@@ -211,7 +225,7 @@ line vty 0 4
  login local
  transport input ssh
 line vty 5 15
- login    
+ login
 !
 !
 monitor session 1 source interface Fa0/2 , Fa0/47

@@ -54,7 +54,7 @@ crypto pki trustpoint TP-self-signed-3639644206
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01 nvram:CiscoLicensi#1CA.cer
 crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01 nvram:IOS-Self-Sig#1F.cer
+ certificate self-signed 01 nvram:IOS-Self-Sig#21.cer
 !
 license boot level network-essentials addon dna-essentials
 !
@@ -233,7 +233,6 @@ interface Vlan10
  ip helper-address 192.168.3.2
  ip helper-address 192.168.3.1
  ip helper-address 192.168.3.3
- ip access-group reseau-client in
 !
 interface Vlan20
  ip address 192.168.3.206 255.255.255.240
@@ -248,8 +247,7 @@ interface Vlan33
 interface Vlan53
  ip address 192.168.3.126 255.255.255.128
  ip helper-address 192.168.3.2
- ip access-group reseau-production in
-!
+!         
 interface Vlan54
  ip address 192.168.131.254 255.255.255.0
 !
