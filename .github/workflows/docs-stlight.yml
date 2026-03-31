@@ -21,25 +21,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      # 2. Installer, construire et uploader le site avec Astro
-      - name: Install, build, and upload site
-        uses: withastro/action@v5
-        with:
-          node-version: 24        # Node.js compatible Astro
-          # path: .               # optional, root of project
-          # package-manager: npm@latest # optional, auto-detect from lockfile
-          # build-cmd: npm run build     # optional, default runs build script
-        # env:                      # si besoin de variables publiques
-          # PUBLIC_API: 'https://example.com/api'
+      # 2. Installer et construire le site avec Astro
+      - name: Install dependencies
+        run: npm ci
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      # URL de la page déployée
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Build site
+        run: npm run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      # 3. Publier le site dans la branche finale `st-pages`
+      - name: Deploy to st-pages branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch origin st-pages || git checkout -b st-pages
+          git checkout -B st-pages
+          git rm -rf .
+          cp -r dist/* .
+          git add .
+          git commit -m "Deploy site from starlight-main [skip ci]"
+          git push -f origin st-pages
