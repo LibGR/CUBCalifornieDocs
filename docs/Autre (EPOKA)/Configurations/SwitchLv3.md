@@ -54,7 +54,7 @@ crypto pki trustpoint TP-self-signed-3639644206
 crypto pki certificate chain SLA-TrustPoint
  certificate ca 01 nvram:CiscoLicensi#1CA.cer
 crypto pki certificate chain TP-self-signed-3639644206
- certificate self-signed 01 nvram:IOS-Self-Sig#20.cer
+ certificate self-signed 01 nvram:IOS-Self-Sig#22.cer
 !
 license boot level network-essentials addon dna-essentials
 !
@@ -284,8 +284,6 @@ call-home
  profile "CiscoTAC-1"
   active
   destination transport-method http
-!
-!
 !
 !
 !

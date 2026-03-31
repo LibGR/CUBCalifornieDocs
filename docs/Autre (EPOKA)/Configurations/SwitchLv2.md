@@ -210,11 +210,12 @@ ip http secure-server
 snmp-server group ReadOnly v3 priv read ReadOnly-View 
 snmp-server view ReadOnly-View iso included
 snmp-server location Agence CL CUB
-snmp-server contact postmaster@californie.cub.si
+snmp-server contact postmastEGARDER A LA BASCULE
 !
 !         
 line con 0
 line vty 5 15
+!
 !
 !
 !PARTIE A SAUVEGARDER A LA BASCULE
