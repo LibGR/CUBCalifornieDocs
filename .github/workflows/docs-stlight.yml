@@ -1,36 +1,45 @@
-name: Deploy Starlight Docs
+name: Deploy Starlight to GitHub Pages
 
 on:
+  # Déclenche le workflow à chaque push sur la branche source
   push:
-    branches:
-      - starlight-main
-  workflow_dispatch: # permet de lancer manuellement le workflow
+    branches: [ starlight-main ]
+  # Permet un lancement manuel depuis l'onglet Actions
+  workflow_dispatch:
 
+# Permissions nécessaires pour GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # 1. Récupération du code
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # 2. Installer, construire et uploader le site avec Astro
+      - name: Install, build, and upload site
+        uses: withastro/action@v5
         with:
-          node-version: 24
-          cache: npm
+          node-version: 24        # Node.js compatible Astro
+          # path: .               # optional, root of project
+          # package-manager: npm@latest # optional, auto-detect from lockfile
+          # build-cmd: npm run build     # optional, default runs build script
+        # env:                      # si besoin de variables publiques
+          # PUBLIC_API: 'https://example.com/api'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Astro/Starlight site
-        run: npm run build
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      # URL de la page déployée
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
-        environment:
-          name: github-pages
