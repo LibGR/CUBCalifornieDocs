@@ -1,5 +1,8 @@
-# Liaison sécurisée avec le Terminal (SSH)
 ---
+title: "Liaison sécurisée avec le Terminal (SSH)"
+description: "Liaison sécurisée avec le Terminal (SSH)"
+---
+
 ## 1. Préparation et installation d’OpenSSH Server
 
 ### Configuration réseau

@@ -1,4 +1,8 @@
-# Configuration du SwitchLv2
+---
+title: "Configuration du SwitchLv2"
+description: "Configuration du SwitchLv2"
+---
+
 ```
 version 15.0
 no service pad

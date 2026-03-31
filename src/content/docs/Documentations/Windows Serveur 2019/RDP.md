@@ -1,5 +1,8 @@
-# Liaison sécurisée avec le Bureau à Distance (RDP)
- 
+---
+title: "Liaison sécurisée avec le Bureau à Distance (RDP)"
+description: "Liaison sécurisée avec le Bureau à Distance (RDP)"
+---
+
 ## 1. Activation du Bureau à Distance sur le serveur
  
 ### Ouvrir le panneau de configuration

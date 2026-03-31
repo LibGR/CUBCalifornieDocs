@@ -1,5 +1,8 @@
-# Préparation de base d'un serveur Windows
 ---
+title: "Préparation de base d'un serveur Windows"
+description: "Préparation de base d'un serveur Windows"
+---
+
 ## 1. Préparation initiale du serveur
 
 ### 1.1 Exécution de Sysprep

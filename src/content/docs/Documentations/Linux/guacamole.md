@@ -1,5 +1,6 @@
-# Bastion d’administration avec Apache Guacamole
-
+---
+title: "Bastion d’administration avec Apache Guacamole"
+description: "Bastion d’administration avec Apache Guacamole"
 ---
 
 ## Attention

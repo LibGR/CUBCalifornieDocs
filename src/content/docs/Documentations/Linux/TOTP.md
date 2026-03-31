@@ -1,5 +1,8 @@
-# SSH sécurisé via TOTP
 ---
+title: "SSH sécurisé via TOTP"
+description: "SSH sécurisé via TOTP"
+---
+
 ## 1. Mise à jour du système
 
 Avant de commencer, assurez-vous que votre système est à jour :

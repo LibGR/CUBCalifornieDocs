@@ -1,5 +1,6 @@
-title: Configuration du SwitchLv2
-description: Configuration du SwitchLv2
+---
+title: "Configuration du SwitchLv2"
+description: "Configuration du SwitchLv2"
 ---
 
 ```

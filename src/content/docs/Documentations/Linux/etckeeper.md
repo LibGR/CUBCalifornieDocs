@@ -1,5 +1,8 @@
-# Versionning de `/etc` avec Etckeeper
 ---
+title: "Versionning de `/etc` avec Etckeeper"
+description: "Versionning de `/etc` avec Etckeeper"
+---
+
 ## 1. Mettre à jour le système
 
 Avant toute installation, assurez-vous que le système est à jour :

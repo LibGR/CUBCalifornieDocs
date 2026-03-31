@@ -1,4 +1,7 @@
-# Serveur DNS maître faisant autorité
+---
+title: "Serveur DNS maître faisant autorité"
+description: "Serveur DNS maître faisant autorité"
+---
 
 ## Attention
 

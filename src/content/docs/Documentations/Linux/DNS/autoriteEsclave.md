@@ -1,4 +1,7 @@
-# Serveur DNS esclave faisant autorité
+---
+title: "Serveur DNS esclave faisant autorité"
+description: "Serveur DNS esclave faisant autorité"
+---
 
 **Agence Californie – ns1.californie.cub.sioplc.fr**
 
