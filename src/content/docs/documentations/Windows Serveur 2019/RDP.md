@@ -9,15 +9,15 @@ description: "Liaison sécurisée avec le Bureau à Distance (RDP)"
  
 Depuis le **tableau de bord du serveur Windows**, accédez aux paramètres système :
  
-![](../../media/doc/W19S/RDP/1_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/1_CUB-AdminSys-Fichede.png)
  
 ### Activer le Bureau à Distance
  
 Activez l’option **“Autoriser les connexions à distance à cet ordinateur”** :
  
-![](../../media/doc/W19S/RDP/13_CUB-AdminSys-Fichede.png)
- 
-![](../../media/doc/W19S/RDP/4_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/13_CUB-AdminSys-Fichede.png)
+
+![](../../../../assets/doc/W19S/RDP/4_CUB-AdminSys-Fichede.png)
 
 Cela permet au serveur d’accepter les connexions RDP depuis d’autres postes du réseau.
 
@@ -29,7 +29,7 @@ Dans le pare-feu Windows :
 * Recherchez la règle **“Bureau à distance (RDP - TCP-In)”**
 * Activez-la si elle est désactivée.
 
-![](../../media/doc/W19S/RDP/3_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/3_CUB-AdminSys-Fichede.png)
 
 !!! info "Astuce"
     Vous pouvez aussi l’activer via PowerShell :
@@ -44,16 +44,16 @@ Dans le pare-feu Windows :
 Sur votre poste client, lancez le programme :
 **Menu Démarrer → Rechercher “Bureau à distance” → Ouvrir**
  
-![](../../media/doc/W19S/RDP/14_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/14_CUB-AdminSys-Fichede.png)
 
 ### Se connecter au serveur
 
 Saisissez **l’adresse IP ou le nom du serveur** puis cliquez sur *Connexion*.
 Acceptez le certificat de sécurité lorsqu’il est demandé :
  
-![](../../media/doc/W19S/RDP/10_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/10_CUB-AdminSys-Fichede.png)
  
-![](../../media/doc/W19S/RDP/2_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/2_CUB-AdminSys-Fichede.png)
 
 ## 4. Vérifier les autorisations d’accès utilisateur
 
@@ -62,7 +62,7 @@ Pour qu’un utilisateur puisse se connecter en RDP, il doit appartenir à l’u
 * **Administrateurs**
 * **Utilisateurs du Bureau à distance**
  
-![](../../media/doc/W19S/RDP/5_CUB-AdminSys-Fichede.png)
+![](../../../../assets/doc/W19S/RDP/5_CUB-AdminSys-Fichede.png)
 
 !!! info "Bonnes pratiques"
     * Évitez d’utiliser le compte *Administrateur* directement.

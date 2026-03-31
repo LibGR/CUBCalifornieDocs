@@ -10,16 +10,21 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'Autre (EPOKA)',
+					autogenerate: { directory: 'epoka' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Documentations',
+					autogenerate: { directory: 'documentations' },
 				},
+				{
+					label: 'Infrastructure',
+					autogenerate: { directory: 'infrastructure' },
+				},
+				//{
+				//	label: 'Reference',
+				//	autogenerate: { directory: 'reference' },
+				//},
 			],
 		}),
 	],

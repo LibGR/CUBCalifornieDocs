@@ -3,8 +3,8 @@ title: Schémas Pysique et Logique
 description: Schémas Pysique et Logique
 ---
 ## Schémas Physique de CUB
-![](../media/infra/schemaPysique.png)
+![](../../../assets/infra/schemaPysique.png)
 
 ---
 ## Schémas Logique de CUB
-![](../media/infra/schemaLogique.png)
+![](../../../assets/infra/schemaLogique.png)

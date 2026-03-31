@@ -5,9 +5,9 @@ description: "Installation serveur WEB"
 
 ## Mise à jour de Packet Tracer
 
-![](../../media/doc/web/13_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/13_Bloc2-ExpServices-ACT2.png)
 
-<a href="../../media/doc/web/CUB-Situation4-BOIGEG.pkt" download>
+<a href="../../../../assets/doc/web/CUB-Situation4-BOIGEG.pkt" download>
   <button>Télécharger</button>
 </a>
 
@@ -141,39 +141,39 @@ http://192.36.3.21
 
 ## Choix de la langue
 
-![](../../media/doc/web/7_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/7_Bloc2-ExpServices-ACT2.png)
 
 ## Pré-requis base de données
 
-![](../../media/doc/web/2_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/2_Bloc2-ExpServices-ACT2.png)
 
 ## Informations de connexion BD
 
-![](../../media/doc/web/10_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/10_Bloc2-ExpServices-ACT2.png)
 
 ## Confirmation de réussite
 
-![](../../media/doc/web/6_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/6_Bloc2-ExpServices-ACT2.png)
 
 ## Création du compte administrateur
 
-![](../../media/doc/web/4_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/4_Bloc2-ExpServices-ACT2.png)
 
 ## Confirmation installation
 
-![](../../media/doc/web/9_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/9_Bloc2-ExpServices-ACT2.png)
 
 ## Connexion administration
 
-![](../../media/doc/web/12_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/12_Bloc2-ExpServices-ACT2.png)
 
 ## Mise à jour de l’URL du site
 
-![](../../media/doc/web/11_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/11_Bloc2-ExpServices-ACT2.png)
 
 ## Site fonctionnel
 
-![](../../media/doc/web/8_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/8_Bloc2-ExpServices-ACT2.png)
 
 ---
 
@@ -235,7 +235,7 @@ sudo systemctl reload apache2.service
 
 ## Site scanner fonctionnel
 
-![](../../media/doc/web/5_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/5_Bloc2-ExpServices-ACT2.png)
 
 ---
 
@@ -360,7 +360,7 @@ SwitchLv2CUB(config)#monitor session 1 source interface fa0/25 both
 SwitchLv2CUB(config)#monitor session 1 destination interface fa0/23
 ```
 
-![](../../media/doc/web/3_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/3_Bloc2-ExpServices-ACT2.png)
 
 ---
 
@@ -368,9 +368,9 @@ SwitchLv2CUB(config)#monitor session 1 destination interface fa0/23
 
 ## WordPress
 
-![](../../media/doc/web/1_Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/1_Bloc2-ExpServices-ACT2.png)
 
 ## Scanner
 
-![](../../media/doc/web/Bloc2-ExpServices-ACT2.png)
+![](../../../../assets/doc/web/Bloc2-ExpServices-ACT2.png)
 

@@ -1,10 +1,7 @@
 ---
-title: "DNS Récursif : Unbound"
-description: "DNS Récursif : Unbound"
+title: "Grafana"
 ---
 
-> [!NOTE]
-> 
 !!! info "Auteurs"
     Mateo BEAUGENDRE
     Lucien BESCOS
@@ -212,7 +209,7 @@ https://grafana.local.france.cub.sioplc.fr
 
 Connectez vous avec `admin/admin` par défaut (il vous demandera de le changer) :
 
-![](../../media/doc/grafana/18_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/18_Expert_Grafana_image.png)
 
 ---
 
@@ -224,11 +221,11 @@ Dans l'onglet d'API, créer un Token :
 
 |                                                          |                                                         |
 | -------------------------------------------------------- | ------------------------------------------------------- |
-| ![](../../media/doc/grafana/20_Expert_Grafana_image.png) | ![](../../media/doc/grafana/7_Expert_Grafana_image.png) |
+| ![](../../../../assets/doc/grafana/20_Expert_Grafana_image.png) | ![](../../../../assets/doc/grafana/7_Expert_Grafana_image.png) |
 
 Sélectionnez un utilisateur privilégié ainsi qu'un nom parlant :
 
-![](../../media/doc/grafana/1_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/1_Expert_Grafana_image.png)
 
 Notez le Token généré pour plus tard :
 
@@ -238,23 +235,23 @@ Notez le Token généré pour plus tard :
 
 Dans l'onglet “Connexion”, ajouter Zabbix :
 
-![](../../media/doc/grafana/2_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/2_Expert_Grafana_image.png)
 
 |                                                          |                                                          |
 | -------------------------------------------------------- | -------------------------------------------------------- |
-| ![](../../media/doc/grafana/13_Expert_Grafana_image.png) | ![](../../media/doc/grafana/12_Expert_Grafana_image.png) |
+| ![](../../../../assets/doc/grafana/13_Expert_Grafana_image.png) | ![](../../../../assets/doc/grafana/12_Expert_Grafana_image.png) |
 
 Pour récupéré les données, ajouter Zabbix comme source de données :
 
-![](../../media/doc/grafana/6_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/6_Expert_Grafana_image.png)
 
 |                                                                                          |                                                           |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Modifier son nom :                                                                       | ![](../../media/doc/grafana/11_Expert_Grafana_image.png)  |
-| Indiquer l'url avec le chemin d'API :                                                    | ![](../../media/doc/grafana/10_Expert_Grafana_image.png)  |
-| Préciser pas d'authentification et passé la vérification de certificat (car autosigné) : | ![](../../media/doc/grafana/11_Expert_Grafana_image.png) |
-| Définissez le Token généré auparavant :                                                  | ![](../../media/doc/grafana/19_Expert_Grafana_image.png)  |
-| Enregistrer et vérifier la configuration :                                               | ![](../../media/doc/grafana/4_Expert_Grafana_image.png)   |
+| Modifier son nom :                                                                       | ![](../../../../assets/doc/grafana/Expert_Grafana_image_(11).png)  |
+| Indiquer l'url avec le chemin d'API :                                                    | ![](../../../../assets/doc/grafana/10_Expert_Grafana_image.png)  |
+| Préciser pas d'authentification et passé la vérification de certificat (car autosigné) : | ![](../../../../assets/doc/grafana/11_Expert_Grafana_image.png) |
+| Définissez le Token généré auparavant :                                                  | ![](../../../../assets/doc/grafana/19_Expert_Grafana_image.png)  |
+| Enregistrer et vérifier la configuration :                                               | ![](../../../../assets/doc/grafana/4_Expert_Grafana_image.png)   |
 
 ---
 
@@ -262,24 +259,24 @@ Pour récupéré les données, ajouter Zabbix comme source de données :
 
 Nous allons voir les étapes général afin d'arriver au mieux à créer un dashboard adapté à Zabbix :
 
-![](../../media/doc/grafana/12b_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/Expert_Grafana_image_(12).png)
 
 Deux variables indispensable à besoins d'être créé : Groupe et Hôte :
 
 |                                                           |                                                          |
 | --------------------------------------------------------- | -------------------------------------------------------- |
-| ![](../../media/doc/grafana/Expert_Grafana_image_(13).png) | ![](../../media/doc/grafana/Expert_Grafana_image_(14).png) |
+| ![](../../../../assets/doc/grafana/Expert_Grafana_image_(13).png) | ![](../../../../assets/doc/grafana/Expert_Grafana_image_(14).png) |
 
 Ceci nous permettra de sélectionner les variables dans les requêtes afin d'avoir des graphique adaptatif à l'élément, comme ici pour le graphique d'utilisation de la RAM :
 
-![](../../media/doc/grafana/15b_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/Expert_Grafana_image_(15).png)
 
 Pour le tableau d’alerte, sélectionner le menu fourni par le plugin :
 
-![](../../media/doc/grafana/17_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/17_Expert_Grafana_image.png)
 
 Et entrer cette syntaxe afin de voir les erreurs pour tout un groupe indépendamment de l'hôte sélectionner :
 
-![](../../media/doc/grafana/16_Expert_Grafana_image.png)
+![](../../../../assets/doc/grafana/16_Expert_Grafana_image.png)
 
 Il vous reste plus qu'à créer votre Dashboard adapté à vos besoin.
