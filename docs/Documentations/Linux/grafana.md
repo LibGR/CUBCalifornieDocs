@@ -1,10 +1,12 @@
 
-# 
+# Grafana 
 
 > [!NOTE]
-> Mateo BEAUGENDRE
-> Lucien BESCOS
-> Liam BOIGEGRAIN
+> 
+!!! info "Auteurs"
+    Mateo BEAUGENDRE
+    Lucien BESCOS
+    Liam BOIGEGRAIN
 
 ---
 
