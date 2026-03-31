@@ -1,4 +1,5 @@
-# Schémas Pysique et Logique
+title: Schémas Pysique et Logique
+description: Schémas Pysique et Logique
 ---
 ## Schémas Physique de CUB
 ![](../media/infra/schemaPysique.png)

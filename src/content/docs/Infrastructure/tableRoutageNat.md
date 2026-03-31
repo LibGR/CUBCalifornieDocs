@@ -1,5 +1,7 @@
-# Les tables de routage et Nat
+title: Les tables de routage et Nat
+description: Les tables de routage et Nat
 ---
+
 ### Tables de routage
 #### Commutateur de niveau 3
 | Destination | Masque | Passerelle | Interface | Type |
