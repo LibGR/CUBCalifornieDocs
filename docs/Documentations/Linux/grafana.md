@@ -1,8 +1,6 @@
 
 # Grafana 
 
-> [!NOTE]
-> 
 !!! info "Auteurs"
     Mateo BEAUGENDRE
     Lucien BESCOS
