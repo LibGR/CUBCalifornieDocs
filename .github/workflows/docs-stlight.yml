@@ -1,9 +1,10 @@
-name: Deploy Starlight
+name: Deploy Starlight Docs
 
 on:
   push:
     branches:
       - starlight-main
+  workflow_dispatch: # permet de lancer manuellement le workflow
 
 permissions:
   contents: read
@@ -11,10 +12,10 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v5
 
       - name: Setup Node.js
@@ -31,5 +32,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          branch: st-page
+        environment:
+          name: github-pages
